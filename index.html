@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" ng-app>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    
+    <title>Sticky Notes</title>
+
+    <!-- scripts -->
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/jquery-ui.min.js"></script>
+    <script src="js/libs/angular.min.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/effects.js"></script>
+
+    <!-- styles -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/stickys.css" />
+  </head>
+
+  <body ng-controller="NotesController">
+
+    <!-- the notes -->
+    <ul class="clearfix">
+      <li ng-repeat="note in notes" class="aNote">
+        <h1>{{ note.title }}</h1>
+        <p class="noteDate">{{ note.date | date:'EEE, MMMM d @ h:mm a' }}</p>
+        <p>{{ note.msg }}</p>
+      </li>
+    </ul>
+
+    <!-- Add note form -->
+    <div class="formWrapper" id="formWrapper">
+      <form class="form-horizontal" ng-submit="addNote()">
+
+        <!-- title textbox -->
+        <div class="control-group">
+          <label class="control-label" for="noteTitle">Title</label>
+          <div class="controls"><input type="text" id="noteTitle" ng-model="noteTitle" /></div>
+        </div>
+
+        <!-- note body textarea -->
+        <div class="control-group">
+          <label class="control-label" for="noteMessage">Note</label>
+          <div class="controls"><textarea rows="5" id="noteMessage" ng-model="noteMessage"></textarea></div>
+        </div>
+
+        <!-- submit button -->
+        <div class="control-group">
+          <div class="controls"><button type="submit" class="btn"><span aria-hidden="true" class="icon-file"></span> Add</button></div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Users control panel -->
+    <div class="glyph" id="addNote"><div class="icon" aria-hidden="true" data-icon="&#xe000;"></div></div>
+    <div class="glyph" id="trashBin"><div class="icon" aria-hidden="true" data-icon="&#xe001;"></div></div>
+    <div class="glyph"><div class="icon" aria-hidden="true" data-icon="&#xe002;"></div></div>
+
+  </body>
+</html>

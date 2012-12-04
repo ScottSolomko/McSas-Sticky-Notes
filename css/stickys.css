@@ -1,0 +1,226 @@
+/*
+ * The Fonts
+ */
+@font-face {
+  font-family: 'icomoon';
+  src:url('../fonts/icomoon.eot');
+  src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon.svg#icomoon') format('svg'),
+      url('../fonts/icomoon.woff') format('woff'),
+      url('../fonts/icomoon.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+[data-icon]:before {
+  font-family: 'icomoon';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+}
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: 'icomoon';
+  font-style: normal;
+  speak: none;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+/******************************************************************************/
+
+/*
+ * Settings
+ */
+body {
+  background-image: url("../img/corkboard.jpg");
+  line-height: 1.61803398875em;
+  padding: 1em 0 1em 2em;
+  margin: 0 auto;
+}
+
+/******************************************************************************/
+
+/*
+ * The Notes
+ */
+ul li {
+  float: left;
+  box-sizing: content-box;
+  margin: 1em;
+  padding: 1em;
+  width: 16em;
+  list-style-type: none;
+  background-color: #FFC;
+  color: #444;
+  box-shadow: 5px 5px 7px rgba(33, 33, 33, .7);
+  border-radius: 10px;
+
+  -webkit-transform: rotate(-2deg);
+     -moz-transform: rotate(-2deg);
+      -ms-transform: rotate(-2deg);
+       -o-transform: rotate(-2deg);
+          transform: rotate(-2deg);
+}
+ul li:nth-child(even) {
+  position: relative;
+  left: 0.5em;
+  background-color: #CFC;
+
+  -webkit-transform: rotate(4deg);
+     -moz-transform: rotate(4deg);
+      -ms-transform: rotate(4deg);
+       -o-transform: rotate(4deg);
+          transform: rotate(4deg);
+}
+ul li:nth-child(3n) {
+  position: relative;
+  top: -0.5em;
+  background-color: #CCF;
+
+  -webkit-transform: rotate(-5deg);
+     -moz-transform: rotate(-5deg);
+      -ms-transform: rotate(-5deg);
+       -o-transform: rotate(-5deg);
+          transform: rotate(-5deg);
+}
+ul li:nth-child(5n) {
+  position: relative;
+  top: 0.5em;
+
+  -webkit-transform: rotate(5deg);
+     -moz-transform: rotate(5deg);
+      -ms-transform: rotate(5deg);
+       -o-transform: rotate(5deg);
+          transform: rotate(5deg);
+}
+ul li:hover, ul li:focus {
+  position: relative;
+  z-index: 5;
+  box-shadow: 10px 10px 7px rgba(0, 0, 0, .7);
+
+  -webkit-transform: scale(1.25);
+     -moz-transform: scale(1.25);
+      -ms-transform: scale(1.25);
+       -o-transform: scale(1.25);
+          transform: scale(1.25);
+}
+ul li h1 { font-size: 2em; }
+ul li p.noteDate {
+  font-size: 0.85em;
+  line-height: 1.61803398875em;
+  color: #777;
+  font-style: italic;
+}
+
+/******************************************************************************/
+
+/*
+ * The "Add Note" Form
+ */
+div.formWrapper {
+  position: fixed;
+  bottom: 5em; /* in relationship to .glyph height*/
+  right: 1.5em;
+  background-color: rgba(22, 22, 22, 0.75);
+  border: 1px solid #222;
+  padding: 2em 1em 2em 0;
+  color: #CCC;
+  box-sizing: border-box;
+}
+/* Rewrite Some Twitter Bootstrap Settings */
+form { margin: 0; }
+.form-horizontal .control-label { width: 5em; font-weight: bold; }
+.form-horizontal .controls { margin-left: 5em; margin-right: 1em;}
+.form-horizontal .control-group:last-child { margin-bottom: 0; }
+
+/******************************************************************************/
+
+/*
+ * User Control Panel
+ */
+.glyph {
+  float: left;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  background: #eee;
+  padding: 1em;
+  margin: .75em 1.5em;
+  color: #CCC;
+  border-radius: .375em;
+
+  background: rgb(125,126,125);
+  background: -moz-linear-gradient(top,  rgba(125,126,125,1) 0%, rgba(14,14,14,1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(125,126,125,1)), color-stop(100%,rgba(14,14,14,1)));
+  background: -webkit-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+  background: -o-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+  background: -ms-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+  background: linear-gradient(to bottom,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 );
+}
+.glyph:hover {
+  color: #FFF;
+
+  background: rgb(69,72,77);
+  background: -moz-linear-gradient(top,  rgba(69,72,77,1) 0%, rgba(0,0,0,1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(69,72,77,1)), color-stop(100%,rgba(0,0,0,1)));
+  background: -webkit-linear-gradient(top,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%);
+  background: -o-linear-gradient(top,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%);
+  background: -ms-linear-gradient(top,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%);
+  background: linear-gradient(to bottom,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 );
+}
+#trashBin {
+  position: fixed;
+  top:  1em;
+  right: 1em;
+}
+.icon { font-size: 2em; }
+.icon-file:before { content: "\e000"; }
+.icon-remove:before { content: "\e001"; }
+.icon-help:before { content: "\e002"; }
+
+/******************************************************************************/
+
+/********
+ *  Custom ui-draggable classes for jQueryUi
+ *******/
+.ui-draggable { cursor: move; }
+ul li.ui-draggable-dragging {
+  opacity: 0.75;
+  z-index: 1;
+  background-color: #FEBBBB;
+  font-size: 0.5em;
+  line-height: 1.61803398875em;
+  width: 8em;
+  height: 8em;
+  overflow: hidden;
+}
+.trash-highlight {
+  color: #FFF;
+
+  background: rgb(69,72,77);
+  background: -moz-linear-gradient(top,  rgba(69,72,77,1) 0%, rgba(0,0,0,1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(69,72,77,1)), color-stop(100%,rgba(0,0,0,1)));
+  background: -webkit-linear-gradient(top,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%);
+  background: -o-linear-gradient(top,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%);
+  background: -ms-linear-gradient(top,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%);
+  background: linear-gradient(to bottom,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 );
+
+  -webkit-transform: scale(1.25);
+     -moz-transform: scale(1.25);
+      -ms-transform: scale(1.25);
+       -o-transform: scale(1.25);
+          transform: scale(1.25);
+}
+.trash-hover {
+  background: rgb(169,3,41);
+  background: -moz-linear-gradient(top,  rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(169,3,41,1)), color-stop(44%,rgba(143,2,34,1)), color-stop(100%,rgba(109,0,25,1)));
+  background: -webkit-linear-gradient(top,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%);
+  background: -o-linear-gradient(top,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%);
+  background: -ms-linear-gradient(top,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%);
+  background: linear-gradient(to bottom,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 );
+}
