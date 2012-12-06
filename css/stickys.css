@@ -25,7 +25,25 @@
   font-weight: normal;
   -webkit-font-smoothing: antialiased;
 }
-
+.icon { font-size: 2em; }
+.icon-new:before {content: "\e000";}
+.icon-trash:before {content: "\e001";}
+.icon-about:before {content: "\e002";}
+.icon-cancel:before {content: "\e003";}
+.icon-help:before {content: "\e004";}
+.device {
+  float: left;
+  margin: 0 0.25em;
+  width: 48px;
+  height:  48px;
+  background-image: url('../img/sprite-devices.png');
+}
+.device-android {background-position: 0px 0px;}
+.device-chrome {background-position: 0px -58px;}
+.device-firefox {background-position: 0px -116px;}
+.device-ie {background-position: 0px -174px;}
+.device-opera {background-position: 0px -232px;}
+.device-safari {background-position: 0px -290px;}
 /******************************************************************************/
 
 /*
@@ -34,16 +52,17 @@
 body {
   background-image: url("../img/corkboard.jpg");
   line-height: 1.61803398875em;
-  padding: 1em 0 1em 2em;
-  margin: 0 auto;
+  padding: 1em 0 0 5em;
+  margin: 0;
 }
+a {outline: 0;}
 
 /******************************************************************************/
 
 /*
  * The Notes
  */
-ul li {
+ul#notesContainer li {
   float: left;
   box-sizing: content-box;
   margin: 1em;
@@ -53,7 +72,6 @@ ul li {
   background-color: #FFC;
   color: #444;
   box-shadow: 5px 5px 7px rgba(33, 33, 33, .7);
-  border-radius: 10px;
 
   -webkit-transform: rotate(-2deg);
      -moz-transform: rotate(-2deg);
@@ -61,7 +79,7 @@ ul li {
        -o-transform: rotate(-2deg);
           transform: rotate(-2deg);
 }
-ul li:nth-child(even) {
+ul#notesContainer li:nth-child(even) {
   position: relative;
   left: 0.5em;
   background-color: #CFC;
@@ -72,7 +90,7 @@ ul li:nth-child(even) {
        -o-transform: rotate(4deg);
           transform: rotate(4deg);
 }
-ul li:nth-child(3n) {
+ul#notesContainer li:nth-child(3n) {
   position: relative;
   top: -0.5em;
   background-color: #CCF;
@@ -83,7 +101,7 @@ ul li:nth-child(3n) {
        -o-transform: rotate(-5deg);
           transform: rotate(-5deg);
 }
-ul li:nth-child(5n) {
+ul#notesContainer li:nth-child(5n) {
   position: relative;
   top: 0.5em;
 
@@ -93,7 +111,7 @@ ul li:nth-child(5n) {
        -o-transform: rotate(5deg);
           transform: rotate(5deg);
 }
-ul li:hover, ul li:focus {
+ul#notesContainer li:hover, ul#notesContainer li:focus {
   position: relative;
   z-index: 5;
   box-shadow: 10px 10px 7px rgba(0, 0, 0, .7);
@@ -104,8 +122,8 @@ ul li:hover, ul li:focus {
        -o-transform: scale(1.25);
           transform: scale(1.25);
 }
-ul li h1 { font-size: 2em; }
-ul li p.noteDate {
+ul#notesContainer li h1 { font-size: 2em; }
+ul#notesContainer li p.noteDate {
   font-size: 0.85em;
   line-height: 1.61803398875em;
   color: #777;
@@ -115,23 +133,126 @@ ul li p.noteDate {
 /******************************************************************************/
 
 /*
+ * The Navigation
+ */
+nav {
+  position: fixed;
+  top:  0;
+  left: 0;
+  z-index: 2;
+  height: 100%;
+  padding: 0 0.5em;
+  background-color: rgba(79, 86, 97, 0.9);
+  border-right: 1px solid #B3C7E0;
+}
+nav li {
+  display: block;
+  padding: 0.85em 1.85em 1em 0.75em;
+  margin: 0.75em 0;
+  border:  1px solid #333;
+  border-radius: 0.25em;
+
+  background: rgb(125,126,125);
+  background: -moz-linear-gradient(top,  rgba(125,126,125,1) 0%, rgba(14,14,14,1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(125,126,125,1)), color-stop(100%,rgba(14,14,14,1)));
+  background: -webkit-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+  background: -o-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+  background: -ms-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+  background: linear-gradient(to bottom,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 );
+}
+nav li:hover {
+  color: #FFF;
+
+  background: rgb(69,72,77);
+  background: -moz-linear-gradient(top,  rgba(69,72,77,1) 0%, rgba(0,0,0,1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(69,72,77,1)), color-stop(100%,rgba(0,0,0,1)));
+  background: -webkit-linear-gradient(top,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%);
+  background: -o-linear-gradient(top,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%);
+  background: -ms-linear-gradient(top,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%);
+  background: linear-gradient(to bottom,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 );
+}
+nav li:hover > a,
+nav li:hover > a:visited,
+nav li:hover > a:hover,
+nav li:hover > a:active {color: #FFF;}
+nav li a {
+  display: block;
+  text-decoration: none;
+  color: #E5E6E4;
+}
+.tooltip {position: relative;}
+.tooltip::before {
+  content: attr(data-tip) ;
+  position:absolute;
+  z-index: 999;
+  white-space:nowrap;
+  bottom:9999px;
+  left: 130%;
+  opacity: 0;
+  background-color: #555;
+  border: 1px solid #C1C1C1;
+  color: #EEE;
+  padding: 0.4em 1.25em;
+  border-radius: 0.25em;
+
+  -webkit-transition: opacity 0.4s ease-out;
+     -moz-transition: opacity 0.4s ease-out;
+       -o-transition: opacity 0.4s ease-out;
+          transition: opacity 0.4s ease-out;
+}
+.tooltip:hover::before {
+  opacity: 0.85;
+  bottom: 0.5em;
+}
+
+/******************************************************************************/
+
+/*
  * The "Add Note" Form
  */
 div.formWrapper {
   position: fixed;
-  bottom: 5em; /* in relationship to .glyph height*/
-  right: 1.5em;
-  background-color: rgba(22, 22, 22, 0.75);
-  border: 1px solid #222;
-  padding: 2em 1em 2em 0;
-  color: #CCC;
+  top: 0em;
+  left: 0em;
+  width:  100%;
+  padding: 2em 0;
+  z-index: 999;
+  color: #444;
+  border-bottom: 2px solid #B2B2B2;
   box-sizing: border-box;
+
+  -webkit-box-shadow:  0px 5px 5px 0px rgba(50, 50, 50, .85);
+          box-shadow:  0px 5px 5px 0px rgba(50, 50, 50, .85);
+
+  background: rgb(238,238,238);
+  background: -moz-linear-gradient(top,  rgba(238,238,238,1) 0%, rgba(204,204,204,1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(204,204,204,1)));
+  background: -webkit-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%);
+  background: -o-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%);
+  background: -ms-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%);
+  background: linear-gradient(to bottom,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 );
 }
+form p {position: relative;}
+form p a {
+  position: absolute;
+  top: -1em;
+  right: -2em;
+  color:  #DB3015;
+}
+textarea {width: 100%;}
+input[type="text"] {width: 100%;}
+#cancelButton {margin-left: 1em;}
 /* Rewrite Some Twitter Bootstrap Settings */
-form { margin: 0; }
+form {
+  width: 50%;
+  margin: 0 auto;
+}
 .form-horizontal .control-label { width: 5em; font-weight: bold; }
-.form-horizontal .controls { margin-left: 5em; margin-right: 1em;}
-.form-horizontal .control-group:last-child { margin-bottom: 0; }
+.form-horizontal .controls {margin-left: 5em;}
+.form-horizontal .control-group:last-child {margin-bottom: 0;}
 
 /******************************************************************************/
 
@@ -170,15 +291,105 @@ form { margin: 0; }
   background: linear-gradient(to bottom,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%);
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 );
 }
-#trashBin {
-  position: fixed;
-  top:  1em;
-  right: 1em;
+
+/******************************************************************************/
+
+/*
+ * Help
+ */
+div.help {
+  position:  fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  overflow-y: scroll;
+  background-color: #F7F7F7;
+  padding: 0 1em;
+  border-left: 2px solid #DDD;
+
+  -webkit-box-shadow:  -5px 0px 5px 0px rgba(50, 50, 50, 0.85);
+          box-shadow:  -5px 0px 5px 0px rgba(50, 50, 50, 0.85);
 }
-.icon { font-size: 2em; }
-.icon-file:before { content: "\e000"; }
-.icon-remove:before { content: "\e001"; }
-.icon-help:before { content: "\e002"; }
+
+/******************************************************************************/
+
+/*
+ * About Window
+ */
+#aboutWindow ul.technologies li {
+  float: left;
+  margin: 0 0.25em;
+}
+#aboutWindow ul.technologies li a {
+  display: block;
+  padding: 0 0.25em;
+  border-radius: 0.15em;
+}
+#aboutWindow ul.technologies li a:hover {
+  background-color: #86857F;
+  color: #EEE;
+}
+#aboutWindow .deviceWrapper li:first-child {margin-left: 0;}
+#aboutWindow .deviceWrapper li:last-child {margin-right: 0;}
+
+/******************************************************************************/
+
+/********
+ * Custom
+ *    ui-dialog
+ *    ui-dialog-titlebar
+ *    ui-dialog-content
+ *    ui-dialog-buttonset
+ */
+.ui-dialog {
+  background-color: #F2F1F0;
+  border: 1px solid #ADA9A5;
+  border-top: 1px solid #3C3B37;
+  border-top-right-radius: 0.25em;
+  border-top-left-radius: 0.25em;
+  padding: 0 16px;
+  padding-bottom: 0.5em;
+}
+.ui-dialog-titlebar {
+  border-top: 1px solid #65635B;
+  border-top-right-radius: 0.25em;
+  border-top-left-radius: 0.25em;
+  color: #DFDBD2;
+  padding: 0 0.5em;
+  margin: 0 -17px;
+
+  background: rgb(77,76,71);
+  background: -moz-linear-gradient(top,  rgba(77,76,71,1) 0%, rgba(61,60,56,1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(77,76,71,1)), color-stop(100%,rgba(61,60,56,1)));
+  background: -webkit-linear-gradient(top,  rgba(77,76,71,1) 0%,rgba(61,60,56,1) 100%);
+  background: -o-linear-gradient(top,  rgba(77,76,71,1) 0%,rgba(61,60,56,1) 100%);
+  background: -ms-linear-gradient(top,  rgba(77,76,71,1) 0%,rgba(61,60,56,1) 100%);
+  background: linear-gradient(to bottom,  rgba(77,76,71,1) 0%,rgba(61,60,56,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d4c47', endColorstr='#3d3c38',GradientType=0 );
+}
+.ui-dialog-content {margin-top: 1em;}
+.ui-dialog-content p.closeDialogWrapper {position: relative;}
+.ui-dialog-content a, .ui-dialog-content a:link, .ui-dialog-content a:visited {color: #E65F31; text-decoration: none;}
+.ui-dialog-content p a, .ui-dialog-content p a:link, .ui-dialog-content p a:visited {
+  position: absolute;
+  top: -2.6em;
+  right: -8px;
+}
+.ui-dialog-content a:hover, .ui-dialog-content a:active {color: #EE744D;}
+.ui-dialog-content span.icon-cancel {
+  text-shadow: 1px 1px 0px #3D3C37;
+  filter: dropshadow(color=#3D3C37, offx=1, offy=1);
+}
+.ui-dialog-content hr {
+  margin: 0.25em -1em 0.5em -1em;
+  border-top: 1px solid #DAD7D5;
+  border-bottom: 1px solid #FBFBFB;
+  border-right: none;
+  border-left: none;
+}
+.ui-dialog-buttonset {text-align: right;}
 
 /******************************************************************************/
 

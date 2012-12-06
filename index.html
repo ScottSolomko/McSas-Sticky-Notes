@@ -22,10 +22,16 @@
 
   <body ng-controller="NotesController">
 
-    <h1>Some Heading</h1>
+    <!-- Navigation, User Control Panel -->
+    <nav>
+      <li class="tooltip" id="addNote" data-tip="New Sticky Note"><a class="icon icon-new"></a></li>
+      <li class="tooltip" id="showHelp" data-tip="Help"><a class="icon icon-help"></a></li>
+      <li class="tooltip" id="showAbout" data-tip="About"><a class="icon icon-about"></a></li>
+      <li class="tooltip" data-tip="Trash"><a class="icon icon-trash"></a></li>
+    </nav>
 
     <!-- the notes -->
-    <ul class="clearfix">
+    <ul class="clearfix" id="notesContainer">
       <li ng-repeat="note in notes" class="aNote">
         <h1>{{ note.title }}</h1>
         <p class="noteDate">{{ note.date | date:'EEE, MMMM d @ h:mm a' }}</p>
@@ -37,11 +43,8 @@
     <div class="formWrapper" id="formWrapper">
       <form class="form-horizontal" ng-submit="addNote()">
 
-        <!-- title textbox -->
-        <div class="control-group">
-          <label class="control-label" for="noteTitle">Title</label>
-          <div class="controls"><input type="text" id="noteTitle" ng-model="noteTitle" /></div>
-        </div>
+        <!-- close icon -->
+        <p><a id="closeIcon"><span class="icon-cancel"></span></a></p>
 
         <!-- note body textarea -->
         <div class="control-group">
@@ -49,17 +52,77 @@
           <div class="controls"><textarea rows="5" id="noteMessage" ng-model="noteMessage"></textarea></div>
         </div>
 
+        <!-- title textbox -->
+        <div class="control-group">
+          <label class="control-label" for="noteTitle">Title</label>
+          <div class="controls"><input type="text" id="noteTitle" ng-model="noteTitle" placeholder="Optional Title"/></div>
+        </div>
+
         <!-- submit button -->
         <div class="control-group">
-          <div class="controls"><button type="submit" class="btn"><span aria-hidden="true" class="icon-file"></span> Add</button></div>
+          <div class="controls">
+            <button type="submit" class="btn btn-primary"><span aria-hidden="true" class="icon-new"></span> Add</button>
+            <button type="button" class="btn btn-danger" id="cancelButton"><span aria-hidden="true" class="icon-cancel"></span> Cancel</button>
+          </div>
         </div>
       </form>
     </div>
 
-    <!-- Users control panel -->
-    <div class="glyph" id="addNote"><div class="icon" aria-hidden="true" data-icon="&#xe000;"></div></div>
-    <div class="glyph" id="trashBin"><div class="icon" aria-hidden="true" data-icon="&#xe001;"></div></div>
-    <div class="glyph"><div class="icon" aria-hidden="true" data-icon="&#xe002;"></div></div>
+    <!-- Help -->
+    <div class="help" id="help">
+      <h1>Help</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+
+    <!-- About -->
+    <div class="aboutWindow" id="aboutWindow" title="About Sticky Notes">
+      <p class="closeDialogWrapper"><a href="#" id="closeDialog"><span class="icon-cancel"></span></a></p>
+
+      <article>
+        <header>
+          <h1>Sticky Notes</h1>
+          <h2>1.0.0</h2>
+          <p>McSas Sticky Notes for modern web browsers.</p>
+        </header>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <h3>Built for:</h3>
+        <ul class="clearfix deviceWrapper">
+          <li class="device device-chrome"></li>
+          <li class="device device-firefox"></li>
+          <li class="device device-ie"></li>
+          <li class="device device-opera"></li>
+          <li class="device device-safari"></li>
+        </ul>
+      </article>
+
+      <hr />
+
+      <h3>Technologies, Software and Resources</h3>
+      <ul class="technologies clearfix">
+        <li><a href="#">Angular JS</a></li>
+        <li><a href="#">Compass</a></li>
+        <li><a href="#">CSS3</a></li>
+        <li><a href="#">CSS3 Generator</a></li>
+        <li><a href="#">Gimp</a></li>
+        <li><a href="#">Gpick</a></li>
+        <li><a href="#">HTML5</a></li>
+        <li><a href="#">IcoMoon</a></li>
+        <li><a href="#">jQuery</a></li>
+        <li><a href="#">jQuery UI</a></li>
+        <li><a href="#">Nettuts+</a></li>
+        <li><a href="#">Twitter Bootstrap</a></li>
+        <li><a href="#">Typetester</a></li>
+        <li><a href="#">Ultimate CSS Gradient Generator</a></li>
+        <li><a href="#">Vim</a></li>
+        <li><a href="#">Webdesigntuts+</a></li>
+      </ul>
+
+      <hr />
+    </div>
 
   </body>
 </html>
