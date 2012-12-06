@@ -399,7 +399,7 @@ div.help {
 .ui-draggable { cursor: move; }
 ul li.ui-draggable-dragging {
   opacity: 0.75;
-  z-index: 1;
+  z-index: 999;
   background-color: #FEBBBB;
   font-size: 0.5em;
   line-height: 1.61803398875em;
@@ -434,4 +434,9 @@ ul li.ui-draggable-dragging {
   background: -ms-linear-gradient(top,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%);
   background: linear-gradient(to bottom,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%);
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 );
+}
+.ui-effects-transfer {
+  z-index: 999;
+  border: 1px dotted #444;
+  /*background-color: #FFC;*/
 }

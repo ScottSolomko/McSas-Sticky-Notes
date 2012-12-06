@@ -96,9 +96,15 @@ $(function() {
     $('#trashBin').droppable({
         accept:         ".aNote",
         tolerance:      "touch",
-        activeClass:    "trash-highlight",
+        //activeClass:    "trash-highlight",
         hoverClass:     "trash-hover",
-        drop:           function(e, ui) {}
+        drop:           function(e, ui) {
+            $(ui.draggable).effect("transfer", {to: $('#trashBin')});
+            $('.ui-effects-transfer').css({
+                'background-color':$(ui.draggable).css('background-color')
+            });
+            $(ui.draggable).empty().remove();
+        }
     });
 
 });
