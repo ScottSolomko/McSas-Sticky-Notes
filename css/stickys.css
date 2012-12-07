@@ -147,7 +147,7 @@ nav {
 }
 nav li {
   display: block;
-  padding: 0.85em 1.85em 1em 0.75em;
+  padding: 0.85em 0.75em 1em 0.75em;
   margin: 0.75em 0;
   border:  1px solid #333;
   border-radius: 0.25em;
