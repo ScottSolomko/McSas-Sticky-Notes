@@ -189,9 +189,9 @@ nav li:hover > a:hover,
 nav li:hover > a:active {color: #FFF;}
 nav li a {
   display: block;
-  text-decoration: none;
   color: #E5E6E4;
 }
+nav li a:hover {cursor: default;}
 .tooltip {position: relative;}
 .tooltip::before {
   content: attr(data-tip) ;
