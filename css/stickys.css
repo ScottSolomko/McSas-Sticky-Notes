@@ -55,7 +55,10 @@ body {
   padding: 1em 0 0 5em;
   margin: 0;
 }
-a {outline: 0;}
+a {
+  outline: 0;
+  text-decoration: none;
+}
 
 /******************************************************************************/
 
@@ -371,7 +374,7 @@ div.help {
 }
 .ui-dialog-content {margin-top: 1em;}
 .ui-dialog-content p.closeDialogWrapper {position: relative;}
-.ui-dialog-content a, .ui-dialog-content a:link, .ui-dialog-content a:visited {color: #E65F31; text-decoration: none;}
+.ui-dialog-content a, .ui-dialog-content a:link, .ui-dialog-content a:visited {color: #E65F31;}
 .ui-dialog-content p a, .ui-dialog-content p a:link, .ui-dialog-content p a:visited {
   position: absolute;
   top: -2.6em;
