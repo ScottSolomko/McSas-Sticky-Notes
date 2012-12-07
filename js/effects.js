@@ -104,7 +104,7 @@ $(function() {
         //activeClass:    "trash-highlight",
         hoverClass:     "trash-hover",
         drop:           function(e, ui) {
-            $(ui.draggable).effect("transfer", {to: $('#trashBin')});
+            $(ui.draggable).effect("transfer", {to: $('#trashBin')}, 750);
             $('.ui-effects-transfer').css({
                 'background-color':$(ui.draggable).css('background-color')
             });
