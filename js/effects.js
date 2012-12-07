@@ -86,8 +86,12 @@ $(function() {
      */
     $('ul#notesContainer li').draggable({
         revert:         "invalid",
-        containment:    "document",
-        cursorAt:       {right: em(2), top: em(1)}
+        containment:    "window",
+        cursorAt:       {right: em(2), top: em(1)},
+        helper:         "clone",
+        start:          function (e, ui) {
+            ui.helper.css({'background-color':ui.helper.prevObject.css('background-color')});
+        }
     });
 
     /**
