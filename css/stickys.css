@@ -1,5 +1,21 @@
 /*
- * The Fonts
+ * Settings
+ */
+body {
+  background-image: url("../img/corkboard.jpg");
+  line-height: 1.61803398875em;
+  padding: 1em 0 0 5em;
+  margin: 0;
+}
+a {
+  outline: 0;
+  text-decoration: none;
+}
+
+/******************************************************************************/
+
+/*
+ * The Icons
  */
 @font-face {
   font-family: 'icomoon';
@@ -31,6 +47,12 @@
 .icon-about:before {content: "\e002";}
 .icon-cancel:before {content: "\e003";}
 .icon-help:before {content: "\e004";}
+
+/******************************************************************************/
+
+/*
+ * Sprites
+ */
 .device {
   float: left;
   margin: 0 0.25em;
@@ -44,21 +66,6 @@
 .device-ie {background-position: 0px -174px;}
 .device-opera {background-position: 0px -232px;}
 .device-safari {background-position: 0px -290px;}
-/******************************************************************************/
-
-/*
- * Settings
- */
-body {
-  background-image: url("../img/corkboard.jpg");
-  line-height: 1.61803398875em;
-  padding: 1em 0 0 5em;
-  margin: 0;
-}
-a {
-  outline: 0;
-  text-decoration: none;
-}
 
 /******************************************************************************/
 
