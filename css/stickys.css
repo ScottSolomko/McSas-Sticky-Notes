@@ -193,29 +193,42 @@ nav li a {
 }
 nav li a:hover {cursor: default;}
 .tooltip {position: relative;}
-.tooltip::before {
-  content: attr(data-tip) ;
-  position:absolute;
+.tooltip::before, .tooltip::after {
+  position: absolute;
+  bottom: 9999px;
   z-index: 999;
-  white-space:nowrap;
-  bottom:9999px;
-  left: 130%;
   opacity: 0;
-  background-color: #555;
-  border: 1px solid #C1C1C1;
-  color: #EEE;
-  padding: 0.4em 1.25em;
-  border-radius: 0.25em;
+  border-style: solid;
 
   -webkit-transition: opacity 0.4s ease-out;
      -moz-transition: opacity 0.4s ease-out;
        -o-transition: opacity 0.4s ease-out;
           transition: opacity 0.4s ease-out;
 }
-.tooltip:hover::before {
-  opacity: 0.85;
-  bottom: 0.5em;
+.tooltip::before {
+  content: attr(data-tip) ;
+  white-space:nowrap;
+  left: 4.5em;
+  background-color: #555;
+  border-width: 1px;
+  border-color: #C1C1C1;
+  border-left: none;
+  border-radius: 0.35em;
+  color: #EEE;
+  padding: 0.4em 1.25em;
 }
+.tooltip::after {
+  content: ' ';
+  height: 0;
+  width: 0;
+  border-color: transparent;
+  border-width: 0.5em 1em 0.5em 0em;
+  border-right-color: #555;
+  left: 3.5em;
+}
+.tooltip:hover::before, .tooltip:hover::after {opacity: 0.85;}
+.tooltip:hover::before {bottom: 0.5em;}
+.tooltip:hover::after {bottom: 1.375em;}
 #trashBin {
   position: fixed;
   bottom: 0;
