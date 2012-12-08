@@ -2,28 +2,30 @@
 
 function NotesController($scope) {
 
-    $scope.notes = [
-        {title : "Read Help", date : new Date().getTime(), msg : "Read the quick instructions to learn how to use this application."},
-        {title : "Read Help", date : new Date().getTime(), msg : "Read the quick instructions to learn how to use this application."},
-        {title : "Read Help", date : new Date().getTime(), msg : "Read the quick instructions to learn how to use this application."},
-        {title : "Read Help", date : new Date().getTime(), msg : "Read the quick instructions to learn how to use this application."},
-        {title : "Read Help", date : new Date().getTime(), msg : "Read the quick instructions to learn how to use this application."}
-    ];
+    var savedNotes;
+    var sessionNotes;
 
-    if ( $scope.notes.length < 1 ) {
-        var now = new Date();
-        //localStorage.setItem(now.getTime(), JSON.stringify({title : "Read Help", date : now.getTime(), msg : "Read the quick instructions to learn how to use this application."}));
-        $scope.notes.push({title : "Read Help", date : now.getTime(), msg : "Read the quick instructions to learn how to use this application."});
+    // get all the notes from local storage and use them for this session
+    savedNotes   = JSON.parse(localStorage.getItem('notes'));
+    if (savedNotes !== null) {
+        sessionNotes = savedNotes;
+    } else {
+        savedNotes   = [];
+        sessionNotes = [];
     }
+
+    // angular monitors this
+    $scope.notes = sessionNotes;
 
     $scope.addNote = function() {
-        var now = new Date();
-        //localStorage.setItem(now.getTime(), angular.toJson({title : $scope.noteTitle, date : now.getTime(), msg : $scope.noteMessage}));
-        $scope.notes.push({title : $scope.noteTitle, date : now.getTime(), msg : $scope.noteMessage});
+        var n = {"title" : $scope.noteTitle, "date" : new Date().getTime(), "msg" : $scope.noteMessage};
+        sessionNotes.push(n);
+        savedNotes.push(n);
+        localStorage.setItem('notes', JSON.stringify(savedNotes));
     }
 
-    // testing
-    $scope.toObj = function(str) {
-        return angular.fromJson(str);
+    $scope.deleteNote = function() {
+        // delete
     }
+
 }
