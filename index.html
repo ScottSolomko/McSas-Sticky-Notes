@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="mcsas">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -32,7 +32,7 @@
 
     <!-- the notes -->
     <ul class="clearfix" id="notesContainer">
-      <li ng-repeat="note in notes" class="aNote">
+      <li ng-repeat="note in notes" class="aNote" my-post-repeat-directive>
         <h1>{{ note.title }}</h1>
         <p class="noteDate">{{ note.date | date:'EEE, MMMM d @ h:mm a' }}</p>
         <p>{{ note.msg }}</p>
