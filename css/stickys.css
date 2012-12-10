@@ -262,13 +262,14 @@ div.formWrapper {
   background: linear-gradient(to bottom,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%);
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 );
 }
-form p {position: relative;}
-form p a {
+form p.closeFormIcon {position: relative;}
+form p.closeFormIcon a {
   position: absolute;
   top: -1em;
   right: -2em;
-  color:  #DB3015;
+  color: #CA413B;
 }
+form p.closeFormIcon a:hover, form p.closeFormIcon a:active {color: #D74C47;}
 textarea {width: 100%;}
 input[type="text"] {width: 100%;}
 #cancelButton {margin-left: 1em;}
