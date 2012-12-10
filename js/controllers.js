@@ -35,6 +35,7 @@ function NotesController($scope) {
     // angular monitors this
     $scope.notes = savedNotes;
 
+    // add a new note
     $scope.addNote = function() {
         var n = {"title" : $scope.noteTitle, "date" : new Date().getTime(), "msg" : $scope.noteMessage};
         savedNotes.push(n);
@@ -47,8 +48,19 @@ function NotesController($scope) {
         }, 1500);
     }
 
-    $scope.deleteNote = function() {
-        // delete
+    // delete a note
+    $scope.deleteNote = function(id) {
+        var index;
+
+        for(var i = 0; i < savedNotes.length; i++) {
+            if (savedNotes[i].date == id) {
+                index = i;
+                break;
+            }
+        }
+
+        savedNotes.splice(index, 1);
+        localStorage.setItem('notes', JSON.stringify(savedNotes));
     }
 
 }

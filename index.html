@@ -32,7 +32,7 @@
 
     <!-- the notes -->
     <ul class="clearfix" id="notesContainer">
-      <li ng-repeat="note in notes" class="aNote" my-post-repeat-directive>
+      <li ng-repeat="note in notes" class="aNote" id="{{ note.date }}" my-post-repeat-directive>
         <h1>{{ note.title }}</h1>
         <p class="noteDate">{{ note.date | date:'EEE, MMMM d @ h:mm a' }}</p>
         <p>{{ note.msg }}</p>

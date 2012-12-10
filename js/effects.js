@@ -133,6 +133,10 @@ $(function() {
             $('.ui-effects-transfer').css({
                 'background-color':$(ui.draggable).css('background-color')
             });
+
+            var ang = angular.element('body').scope();
+            ang.deleteNote(ui.draggable[0].id);
+
             $(ui.draggable).empty().remove();
         }
     });
