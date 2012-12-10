@@ -1,9 +1,10 @@
 'use strict';
-    function em(numberOfEms) {
-        var currentEmSize = parseFloat($('body').css('font-size'));
-        return (currentEmSize * numberOfEms);
-    }
-    
+
+function em(numberOfEms) {
+    var currentEmSize = parseFloat($('body').css('font-size'));
+    return (currentEmSize * numberOfEms);
+}
+
 angular.module('mcsas', []).directive('myPostRepeatDirective', function() {
     return function(scope, element, attrs) {
         if(scope.$last) {
