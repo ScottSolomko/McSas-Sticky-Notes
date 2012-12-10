@@ -39,6 +39,12 @@ function NotesController($scope) {
         var n = {"title" : $scope.noteTitle, "date" : new Date().getTime(), "msg" : $scope.noteMessage};
         savedNotes.push(n);
         localStorage.setItem('notes', JSON.stringify(savedNotes));
+
+        // flash success message
+        $('#success').addClass('success-show');
+        setTimeout(function() {
+            $('#success').removeClass('success-show');
+        }, 1500);
     }
 
     $scope.deleteNote = function() {

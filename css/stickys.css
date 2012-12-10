@@ -47,6 +47,7 @@ a {
 .icon-about:before {content: "\e002";}
 .icon-cancel:before {content: "\e003";}
 .icon-help:before {content: "\e004";}
+.icon-checkmark:before {content: "\e005";}
 
 /******************************************************************************/
 
@@ -262,6 +263,24 @@ div.formWrapper {
   background: linear-gradient(to bottom,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%);
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 );
 }
+form p.success {
+  margin: -1em -0.75em 0.5em 5em;
+  background-color: #E6EFC2;
+  border: 2px solid #C6D880;
+  color: #264409;
+  background-repeat: no-repeat;
+  background-position: 1em 0;
+  background-image: url(../img/checkmark.png);
+  padding: 0.25em 0 0.15em 3.5em;
+  opacity: 0;
+
+  -webkit-transition: opacity 1s ease-in-out;
+     -moz-transition: opacity 1s ease-in-out;
+      -ms-transition: opacity 1s ease-in-out;
+       -o-transition: opacity 1s ease-in-out;
+          transition: opacity 1s ease-in-out;
+}
+form p.success-show {opacity: 1;}
 form p.closeFormIcon {position: relative;}
 form p.closeFormIcon a {
   position: absolute;
