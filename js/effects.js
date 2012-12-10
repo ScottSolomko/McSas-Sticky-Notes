@@ -5,6 +5,33 @@ $(function() {
         return (currentEmSize * numberOfEms);
     }
 
+    function toggleAddNoteForm() {
+        $('#formWrapper').slideToggle();    // show the form
+        $('#formWrapper textarea').focus(); // give focus to the textarea, user will be able to immediately start typing
+    }
+
+    function toggleHelp() {
+        $('#help').toggle("slide", {direction:"right"});
+    }
+
+    function showAboutWindow() {
+        $('#aboutWindow').dialog({
+            closeText: "",
+            draggable: false,
+            minWidth: em(30),
+            modal: true,
+            resizable: false,
+            buttons: {
+                OK: function() {
+                    $(this).dialog("close");
+                }
+            }
+        });
+
+        $('.ui-dialog-content').addClass('clearfix');
+        $('.ui-dialog-buttonset button').addClass('btn btn-primary');
+    }
+
     function closeAddNoteForm() {
         $('form textarea').val('');             // clear the textarea
         $('form input[type="text"]').val('');   // clear the title
@@ -21,9 +48,12 @@ $(function() {
      */
     $('#addNote').click( function(e) {
         e.preventDefault();
+        toggleAddNoteForm();
+    });
 
-        $('#formWrapper').slideToggle();    // show the form
-        $('#formWrapper textarea').focus(); // give focus to the textarea, user will be able to immediately start typing
+    $('#addNote a').click( function(e) {
+        e.preventDefault();
+        toggleAddNoteForm();
     });
 
     /**
@@ -47,7 +77,12 @@ $(function() {
      */
     $('#showHelp').click( function(e) {
         e.preventDefault();
-        $('#help').toggle("slide", {direction:"right"});
+        toggleHelp();
+    });
+
+    $('#showHelp a').click( function(e) {
+        e.preventDefault();
+        toggleHelp();
     });
 
     /**
@@ -55,26 +90,16 @@ $(function() {
      */
     $('#showAbout').click( function(e) {
         e.preventDefault();
+        showAboutWindow();
+    });
 
-        $('#aboutWindow').dialog({
-            closeText: "",
-            draggable: false,
-            minWidth: em(30),
-            modal: true,
-            resizable: false,
-            buttons: {
-                OK: function() {
-                    $(this).dialog("close");
-                }
-            }
-        });
-
-        $('.ui-dialog-content').addClass('clearfix');
-        $('.ui-dialog-buttonset button').addClass('btn btn-primary');
+    $('#showAbout a').click( function(e) {
+        e.preventDefault();
+        showAboutWindow();
     });
 
     /**
-     * Our hand-crafted close button on the diaglog's title bar
+     * Our hand-crafted close button in the About diaglog's title bar
      */
     $('#closeDialog').click( function(e) {
         e.preventDefault();
