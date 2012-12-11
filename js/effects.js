@@ -29,7 +29,7 @@ $(function() {
         });
 
         $('.ui-dialog-content').addClass('clearfix');
-        $('.ui-dialog-buttonset button').addClass('btn btn-primary');
+        $('.ui-dialog-buttonset button').addClass('btn');
     }
 
     function closeAddNoteForm() {
