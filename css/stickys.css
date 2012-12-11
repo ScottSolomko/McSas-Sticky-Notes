@@ -35,32 +35,6 @@
 /******************************************************************************/
 
 /*
- * Settings
- */
-html {font-size: 100%;}   /* remove this once media queries are active */
-body {
-  background-image: url("../img/corkboard.jpg");
-  font-size: 100%;
-  line-height: 1.61803398875em;
-  font-family: DroidSansRegular;
-  padding: 1em 0 0 5em;
-  margin: 0;
-  color: #333;
-}
-a, a:focus, a:active, a:hover {
-  outline: 0;
-  text-decoration: none;
-}
-h1, h2, h3, h4, h5, h6 {font-family: CrimsonRoman;}
-h1 {
-  font-size: 2em;
-  line-height: 1.61803398875em;
-  font-weight: normal;
-}
-
-/******************************************************************************/
-
-/*
  * Fonts
  */
 @font-face {
@@ -94,6 +68,32 @@ h1 {
        url('../fonts/Blokletters-Balpen-webfont.svg#BloklettersBalpen') format('svg');
   font-weight: normal;
   font-style: normal;
+}
+
+/******************************************************************************/
+
+/*
+ * Settings
+ */
+html {font-size: 100%;}   /* remove this once media queries are active */
+body {
+  background-image: url("../img/corkboard.jpg");
+  font-size: 100%;
+  line-height: 1.61803398875em;
+  font-family: DroidSansRegular;
+  padding: 1em 0 0 5em;
+  margin: 0;
+  color: #333;
+}
+a, a:focus, a:active, a:hover {
+  outline: 0;
+  text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6 {font-family: CrimsonRoman;}
+h1 {
+  font-size: 2em;
+  line-height: 1.61803398875em;
+  font-weight: normal;
 }
 
 /******************************************************************************/
