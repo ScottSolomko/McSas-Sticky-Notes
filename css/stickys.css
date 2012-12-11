@@ -43,7 +43,7 @@ body {
   padding: 1em 0 0 5em;
   margin: 0;
 }
-a {
+a, a:focus, a:active, a:hover {
   outline: 0;
   text-decoration: none;
 }
