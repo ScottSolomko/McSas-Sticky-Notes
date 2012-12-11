@@ -41,10 +41,16 @@ function NotesController($scope) {
         savedNotes.push(n);
         localStorage.setItem('notes', JSON.stringify(savedNotes));
 
+        $scope.noteMessage = '';
+        $scope.noteTitle   = '';
+
         // flash success message
         $('#success').addClass('success-show');
         setTimeout(function() {
             $('#success').removeClass('success-show');
+            setTimeout(function() {
+                $('#formWrapper').slideToggle();
+            }, 500);
         }, 1500);
     }
 
