@@ -43,11 +43,37 @@
         font-style: normal;
       }
 
-      html {font-size: 100%;}
+      html {font-size: 100%;}   /* set font-size here, media queries will override this */
       body {
         font-size: 100%;
         line-height: 1.61803398875em;
+        color: #333;
       }
+      h1, h2, h3, h4, h5, h6 {font-family: CrimsonRoman;}
+      h1 {
+        font-size: 2em;
+        line-height: 1.61803398875em;
+        font-weight: normal;
+      }
+      .note {
+        float: left;
+        width: 16em;
+        margin: 1em;
+        padding: 0 1em 1em 1em;
+        font-family: BloklettersBalpen;
+        background-color: #FFC;
+        color: #444;
+      }
+      .note p.date {
+        font-size: 0.85em;
+        line-height: 1.61803398875em;
+        margin: -0.5em 0 0.5em 0;
+        font-style: italic;
+        color: #777;
+      }
+      .help {font-family: DroidSansRegular;}
+      .help h1 {margin-bottom: -0.25em;}
+      .help p {margin: 1em 0;}
     </style>
   </head>
   <body>
