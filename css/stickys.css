@@ -37,15 +37,25 @@
 /*
  * Settings
  */
+html {font-size: 100%;}   /* remove this once media queries are active */
 body {
   background-image: url("../img/corkboard.jpg");
+  font-size: 100%;
   line-height: 1.61803398875em;
+  font-family: DroidSansRegular;
   padding: 1em 0 0 5em;
   margin: 0;
+  color: #333;
 }
 a, a:focus, a:active, a:hover {
   outline: 0;
   text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6 {font-family: CrimsonRoman;}
+h1 {
+  font-size: 2em;
+  line-height: 1.61803398875em;
+  font-weight: normal;
 }
 
 /******************************************************************************/
@@ -151,11 +161,12 @@ ul#notesContainer li {
   float: left;
   box-sizing: content-box;
   margin: 1em;
-  padding: 1em;
+  padding: 0 1em 1em 1em;
   width: 16em;
   list-style-type: none;
   background-color: #FFC;
   color: #444;
+  font-family: BloklettersBalpen;
   box-shadow: 5px 5px 7px rgba(33, 33, 33, .7);
 
   -webkit-transform: rotate(-2deg);
@@ -207,12 +218,12 @@ ul#notesContainer li:hover, ul#notesContainer li:focus {
        -o-transform: scale(1.25);
           transform: scale(1.25);
 }
-ul#notesContainer li h1 { font-size: 2em; }
 ul#notesContainer li p.noteDate {
   font-size: 0.85em;
   line-height: 1.61803398875em;
   color: #777;
   font-style: italic;
+  margin: -0.5em 0 0.5em 0;
 }
 
 /******************************************************************************/
@@ -395,6 +406,8 @@ div.help {
   -webkit-box-shadow:  -5px 0px 5px 0px rgba(50, 50, 50, 0.85);
           box-shadow:  -5px 0px 5px 0px rgba(50, 50, 50, 0.85);
 }
+div.help h1 {margin-bottom: -0.25em;}
+div.help p {margin:  1em 0;}
 
 /******************************************************************************/
 
