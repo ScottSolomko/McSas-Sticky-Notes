@@ -414,6 +414,25 @@ div.help p {margin:  1em 0;}
 /*
  * About Window
  */
+#aboutWindow h1 {line-height: 1em;}
+#aboutWindow p.version {
+  font-style: italic;
+  font-size: 0.75em;
+  line-height: 1.61803398875em;
+}
+#aboutWindow p.tagline {font-weight: bold;}
+#aboutWindow hr {
+  margin: 0.25em -1em 0.5em -1em;
+  border-top: 1px solid #DAD7D5;
+  border-bottom: 1px solid #FBFBFB;
+  border-right: none;
+  border-left: none;
+}
+#aboutWindow h2 {
+  font-size: 1.5em;
+  line-height: 1.61803398875em;
+}
+#aboutWindow article p a {font-style: italic;}
 #aboutWindow ul.technologies li {
   float: left;
   margin: 0 0.25em;
@@ -430,15 +449,6 @@ div.help p {margin:  1em 0;}
 #aboutWindow .deviceWrapper li:first-child {margin-left: 0;}
 #aboutWindow .deviceWrapper li:last-child {margin-right: 0;}
 
-/******************************************************************************/
-
-/********
- * Custom
- *    ui-dialog
- *    ui-dialog-titlebar
- *    ui-dialog-content
- *    ui-dialog-buttonset
- */
 .ui-dialog {
   background-color: #F2F1F0;
   border: 1px solid #ADA9A5;
@@ -453,7 +463,7 @@ div.help p {margin:  1em 0;}
   border-top-right-radius: 0.25em;
   border-top-left-radius: 0.25em;
   color: #DFDBD2;
-  padding: 0 0.5em;
+  padding: 0.15em 0.5em 0;
   margin: 0 -17px;
 
   background: rgb(77,76,71);
@@ -468,30 +478,25 @@ div.help p {margin:  1em 0;}
 .ui-dialog-content {margin-top: 1em;}
 .ui-dialog-content p.closeDialogWrapper {position: relative;}
 .ui-dialog-content a, .ui-dialog-content a:link, .ui-dialog-content a:visited {color: #E65F31;}
-.ui-dialog-content p a, .ui-dialog-content p a:link, .ui-dialog-content p a:visited {
+.ui-dialog-content p.closeDialogWrapper a,
+.ui-dialog-content p.closeDialogWrapper a:link,
+.ui-dialog-content p.closeDialogWrapper a:visited {
   position: absolute;
-  top: -2.6em;
-  right: -8px;
+  top: -2.75em;
+  right: -0.75em;
 }
 .ui-dialog-content a:hover, .ui-dialog-content a:active {color: #EE744D;}
 .ui-dialog-content span.icon-cancel {
   text-shadow: 1px 1px 0px #3D3C37;
-  filter: dropshadow(color=#3D3C37, offx=1, offy=1);
-}
-.ui-dialog-content hr {
-  margin: 0.25em -1em 0.5em -1em;
-  border-top: 1px solid #DAD7D5;
-  border-bottom: 1px solid #FBFBFB;
-  border-right: none;
-  border-left: none;
+       filter: dropshadow(color=#3D3C37, offx=1, offy=1);
 }
 .ui-dialog-buttonset {text-align: right;}
 
 /******************************************************************************/
 
-/********
+/*
  *  Custom ui-draggable classes for jQueryUi
- *******/
+ */
 .ui-draggable { cursor: move; }
 ul li.ui-draggable-dragging {
   opacity: 0.75;
