@@ -126,7 +126,6 @@ $(function() {
     $('#trashBin').droppable({
         accept:         ".aNote",
         tolerance:      "touch",
-        //activeClass:    "trash-highlight",
         hoverClass:     "trash-hover",
         drop:           function(e, ui) {
             $(ui.draggable).effect("transfer", {to: $('#trashBin')}, 750);
