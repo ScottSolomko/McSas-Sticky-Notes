@@ -143,7 +143,8 @@ ul#notesContainer li {
   box-sizing: content-box;
   margin: 1em;
   padding: 0 1em 1em 1em;
-  width: 16em;
+  width: 14em;
+  min-height: 14em;
   list-style-type: none;
   background-color: #FFC;
   color: #444;
@@ -200,7 +201,7 @@ ul#notesContainer li:hover, ul#notesContainer li:focus {
           transform: scale(1.25);
 }
 ul#notesContainer li p.noteDate {
-  font-size: 0.85em;
+  font-size: 0.8em;
   line-height: 1.61803398875em;
   color: #777;
   font-style: italic;
