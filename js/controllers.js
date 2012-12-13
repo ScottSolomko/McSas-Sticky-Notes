@@ -30,6 +30,10 @@ function NotesController($scope) {
     savedNotes   = JSON.parse(localStorage.getItem('notes'));
     if (savedNotes == null) {
         savedNotes = [];
+
+        var n = {"title" : "Read Help", "date" : new Date().getTime(), "msg" : "Click on the \"Help\" icon where you will learn how to create and delete notes."};
+        savedNotes.push(n);
+        localStorage.setItem("notes", JSON.stringify(savedNotes));
     }
 
     // angular monitors this
