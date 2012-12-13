@@ -410,6 +410,11 @@ div.help h1 {
   background-repeat: no-repeat;
   background-position: 0.5em center;
 }
+div.help a,
+div.help a:link,
+div.help a:visited,
+div.help a:hover,
+div.help a:active {color: #E65F31;}
 p.closeHelpIconWrapper {
   position: absolute;
   top: 0.75em;
