@@ -85,6 +85,18 @@ $(function() {
         toggleHelp();
     });
 
+    $('#help article').accordion({
+        collapsible:    true,
+        header:         "h2",
+        heightStyle:    "content",
+        icons:          false
+    });
+
+    $('#closeHelpIcon').click(function(e) {
+        e.preventDefault();
+        toggleHelp();
+    });
+
     /**
      * About Window
      */
