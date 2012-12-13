@@ -410,6 +410,15 @@ div.help h1 {
   background-repeat: no-repeat;
   background-position: 0.5em center;
 }
+div.help p {margin: 1em 0;}
+div.help ol,
+div.help ul {
+  list-style-position: outside;
+  margin: 1em 0;
+  padding-left: 2.25em;
+}
+div.help ol {list-style-type: decimal;}
+div.help ul {list-style-type: disc;}
 div.help a,
 div.help a:link,
 div.help a:visited,
@@ -417,7 +426,7 @@ div.help a:hover,
 div.help a:active {color: #E65F31;}
 p.closeHelpIconWrapper {
   position: absolute;
-  top: 0.75em;
+  top: -0.25em;
   right: 1em;
 }
 p.closeHelpIconWrapper a.icon-cancel {font-size: 1.5em;}
@@ -485,11 +494,6 @@ p.closeHelpIconWrapper a:active {color: #EE744D;}
   border-top: none;
   border-bottom-left-radius: 0.35em;
   border-bottom-right-radius: 0.35em;
-}
-ol.ui-accordion-content {
-  list-style-type: decimal;
-  list-style-position: outside;
-  padding-left: 2.25em;
 }
 /******************************************************************************/
 
