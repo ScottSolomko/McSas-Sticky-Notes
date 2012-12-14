@@ -275,7 +275,7 @@ nav li a:hover {cursor: default;}
           transition: opacity 0.4s ease-out;
 }
 .tooltip::before {
-  content: attr(data-tip) ;
+  content: attr(data-tip) " [" attr(accesskey) "]";
   white-space:nowrap;
   left: 4.5em;
   background-color: #555;
@@ -284,7 +284,7 @@ nav li a:hover {cursor: default;}
   border-left: none;
   border-radius: 0.35em;
   color: #EEE;
-  padding: 0.4em 1.25em;
+  padding: 0.2em 1em 0em;
 }
 .tooltip::after {
   content: ' ';
@@ -296,12 +296,13 @@ nav li a:hover {cursor: default;}
   left: 3.5em;
 }
 .tooltip:hover::before, .tooltip:hover::after {opacity: 0.85;}
-.tooltip:hover::before {bottom: 0.5em;}
+.tooltip:hover::before {bottom: 0.9em;}
 .tooltip:hover::after {bottom: 1.375em;}
 #trashBin {
   position: fixed;
   bottom: 0;
 }
+#trashBin::before {content: attr(data-tip);}
 
 /******************************************************************************/
 
