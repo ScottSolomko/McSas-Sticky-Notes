@@ -382,7 +382,8 @@ div.help {
   right: 0;
   width: 50%;
   height: 100%;
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
   background-color: #F7F7F7;
   padding: 0 1em;
   border-left: 2px solid #DDD;
