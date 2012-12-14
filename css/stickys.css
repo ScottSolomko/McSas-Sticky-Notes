@@ -77,12 +77,12 @@
  */
 html {font-size: 100%;}   /* remove this once media queries are active */
 body {
+  margin: 0;
+  padding: 0;
   background-image: url("../img/corkboard.jpg");
   font-size: 100%;
   line-height: 1.61803398875em;
   font-family: DroidSansRegular;
-  padding: 1em 0 0 5em;
-  margin: 0;
   color: #333;
 }
 a, a:focus, a:active, a:hover {
@@ -138,6 +138,7 @@ strong {font-weight: bold;}
 /*
  * The Notes
  */
+ul#notesContainer {margin: 2em 0 0 6em;}
 ul#notesContainer li {
   float: left;
   box-sizing: content-box;
