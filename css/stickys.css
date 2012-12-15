@@ -140,6 +140,7 @@ strong {font-weight: bold;}
  */
 ul#notesContainer {margin: 2em 0 0 6em;}
 ul#notesContainer li {
+  position: relative;
   float: left;
   box-sizing: content-box;
   margin: 1em;
@@ -201,6 +202,18 @@ ul#notesContainer li:hover, ul#notesContainer li:focus {
        -o-transform: scale(1.25);
           transform: scale(1.25);
 }
+ul#notesContainer a.deleteNote {
+  position: absolute;
+  top: 0em;
+  right: 0.25em;
+  font-size: 0.75em;
+  line-height: 1.61803398875em;
+}
+ul#notesContainer a.deleteNote,
+ul#notesContainer a.deleteNote:link,
+ul#notesContainer a.deleteNote:visited{color: #AAA;}
+ul#notesContainer a.deleteNote:hover,
+ul#notesContainer a.deleteNote:active{color: #777;}
 ul#notesContainer li p.noteDate {
   font-size: 0.8em;
   line-height: 1.61803398875em;
