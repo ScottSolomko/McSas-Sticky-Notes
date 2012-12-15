@@ -382,10 +382,10 @@ div.help {
   right: 0;
   width: 50%;
   height: 100%;
+  padding: 0 1em;
   overflow-y: scroll;
   overflow-x: hidden;
   background-color: #F7F7F7;
-  padding: 0 1em;
   border-left: 2px solid #DDD;
 
   -webkit-box-shadow:  -5px 0px 5px 0px rgba(50, 50, 50, 0.85);
@@ -427,6 +427,29 @@ div.help a:link,
 div.help a:visited,
 div.help a:hover,
 div.help a:active {color: #E65F31;}
+div.help table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: 1em;
+}
+div.help table caption {
+  padding-top: 0.25em;
+  background-color: rgb(169, 180, 193);
+}
+div.help table thead tr {background-color: rgb(199, 206, 214);}
+div.help table th,
+div.help table td {
+  padding-top: 0.25em;
+  vertical-align: top;
+  border-top: 1px solid rgb(140, 155, 171);
+}
+div.help tbody tr:hover {
+  cursor: default;
+  background-color: #C7D6D6;
+}
+div.help tbody tr td {text-align: center;}
+div.help tbody tr td:first-child {text-align: left;}
 p.closeHelpIconWrapper {
   position: absolute;
   top: -0.25em;
