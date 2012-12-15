@@ -36,6 +36,7 @@
     <!-- the notes -->
     <ul class="clearfix" id="notesContainer">
       <li ng-repeat="note in notes" class="aNote" id="{{ note.date }}" my-post-repeat-directive>
+        <p><a class="editNote icon-edit" id="editNote" title="edit"></a></p>
         <p><a class="deleteNote icon-cancel" id="deleteNote" title="delete"></a></p>
         <h1>{{ note.title }}</h1>
         <p class="noteDate">{{ note.date | date:'EEE, MMMM d @ h:mm a' }}</p>

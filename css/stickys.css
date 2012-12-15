@@ -132,6 +132,7 @@ strong {font-weight: bold;}
 .icon-cancel:before {content: "\e003";}
 .icon-help:before {content: "\e004";}
 .icon-checkmark:before {content: "\e005";}
+.icon-edit:before {content: "\e006";}
 
 /******************************************************************************/
 
@@ -202,16 +203,23 @@ ul#notesContainer li:hover, ul#notesContainer li:focus {
        -o-transform: scale(1.25);
           transform: scale(1.25);
 }
+ul#notesContainer a.editNote,
 ul#notesContainer a.deleteNote {
   position: absolute;
   top: 0em;
-  right: 0.25em;
   font-size: 0.75em;
   line-height: 1.61803398875em;
 }
+ul#notesContainer a.editNote {right: 1.75em;}
+ul#notesContainer a.deleteNote {right: 0.25em;}
+ul#notesContainer a.editNote,
+ul#notesContainer a.editNote:link,
+ul#notesContainer a.editNote:visited,
 ul#notesContainer a.deleteNote,
 ul#notesContainer a.deleteNote:link,
 ul#notesContainer a.deleteNote:visited{color: #AAA;}
+ul#notesContainer a.editNote:hover,
+ul#notesContainer a.editNote:active,
 ul#notesContainer a.deleteNote:hover,
 ul#notesContainer a.deleteNote:active{color: #777;}
 ul#notesContainer li p.noteDate {
