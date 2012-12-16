@@ -24,15 +24,7 @@ angular.module('mcsas', []).directive('myPostRepeatDirective', function() {
 
 function NotesController($scope) {
 
-    var savedNotes;
-
-    $scope.noteMessage  = '';
-    $scope.noteTitle    = '';
-    $scope.noteId       = 0;
-    $scope.submitButton = 'Add';
-
-    // get all the notes from local storage and use them for this session
-    savedNotes   = JSON.parse(localStorage.getItem('notes'));
+    var savedNotes = JSON.parse(localStorage.getItem('notes'));
 
     if (savedNotes == null || savedNotes.length < 1) {
         savedNotes = [];
@@ -42,7 +34,11 @@ function NotesController($scope) {
         localStorage.setItem("notes", JSON.stringify(savedNotes));
     }
 
-    $scope.notes = savedNotes;
+    $scope.notes        = savedNotes;
+    $scope.noteMessage  = '';
+    $scope.noteTitle    = '';
+    $scope.noteId       = 0;
+    $scope.submitButton = 'Add';
 
     $scope.submitNote = function() {
         if ($scope.noteId > 0) {
@@ -94,6 +90,9 @@ function NotesController($scope) {
         localStorage.setItem('notes', JSON.stringify(savedNotes));
     }
 
+    /*
+     *  Animations/Interations
+     */
     $scope.animateDeleteNote = function(id) {
         var li = document.getElementById(id);
 
