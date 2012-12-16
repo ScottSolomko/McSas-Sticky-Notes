@@ -27,7 +27,7 @@
 
     <!-- Navigation, User Control Panel -->
     <nav>
-      <li class="tooltip" id="addNote" data-tip="New Sticky Note" accesskey="n"><a class="icon icon-new"></a></li>
+      <li class="tooltip" id="addNote" data-tip="New Sticky Note" accesskey="n" ng-click="showAddNoteForm()"><a class="icon icon-new" ng-click="showAddNoteForm()"></a></li>
       <li class="tooltip" id="showHelp" data-tip="Help" accesskey="h"><a class="icon icon-help"></a></li>
       <li class="tooltip" id="showAbout" data-tip="About" accesskey="a"><a class="icon icon-about"></a></li>
       <li class="tooltip" id="trashBin" data-tip="Trash"><a class="icon icon-trash"></a></li>
@@ -36,7 +36,7 @@
     <!-- the notes -->
     <ul class="clearfix" id="notesContainer">
       <li ng-repeat="note in notes" class="aNote" id="{{ note.date }}" my-post-repeat-directive>
-        <p><a class="editNote icon-edit" id="editNote" title="edit"></a></p>
+        <p><a class="editNote icon-edit" title="edit" ng-click="showEditNoteForm(note)"></a></p>
         <p><a class="deleteNote icon-cancel" title="delete" ng-click="animateDeleteNote(note.date)"></a></p>
         <h1>{{ note.title }}</h1>
         <p class="noteDate">{{ note.date | date:'EEE, MMMM d @ h:mm a' }}</p>
@@ -46,13 +46,13 @@
 
     <!-- Add note form -->
     <div class="formWrapper" id="formWrapper">
-      <form class="form-horizontal" ng-submit="addNote()">
+      <form class="form-horizontal" ng-submit="submitNote()">
 
         <!-- success msg -->
         <p class="success" id="success">Sticky note added</p>
 
         <!-- close icon -->
-        <p class="closeFormIcon"><a id="closeIcon"><span class="icon-cancel"></span></a></p>
+        <p class="closeFormIcon"><a id="closeIcon" ng-click="closeAddNoteForm()"><span class="icon-cancel"></span></a></p>
 
         <!-- note body textarea -->
         <div class="control-group">
@@ -69,8 +69,8 @@
         <!-- submit button -->
         <div class="control-group">
           <div class="controls">
-            <button type="submit" class="btn btn-primary"><span aria-hidden="true" class="icon-new"></span> Add</button>
-            <button type="button" class="btn btn-danger" id="cancelButton"><span aria-hidden="true" class="icon-cancel"></span> Cancel</button>
+            <button type="submit" class="btn btn-primary"><span aria-hidden="true" class="icon-new"></span> {{submitButton}}</button>
+            <button type="button" class="btn btn-danger" id="cancelButton" ng-click="closeAddNoteForm()"><span aria-hidden="true" class="icon-cancel"></span> Cancel</button>
           </div>
         </div>
       </form>

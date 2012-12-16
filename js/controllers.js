@@ -26,6 +26,11 @@ function NotesController($scope) {
 
     var savedNotes;
 
+    $scope.noteMessage  = '';
+    $scope.noteTitle    = '';
+    $scope.noteId       = 0;
+    $scope.submitButton = 'Add';
+
     // get all the notes from local storage and use them for this session
     savedNotes   = JSON.parse(localStorage.getItem('notes'));
 
@@ -37,10 +42,16 @@ function NotesController($scope) {
         localStorage.setItem("notes", JSON.stringify(savedNotes));
     }
 
-    // angular monitors this
     $scope.notes = savedNotes;
 
-    // add a new note
+    $scope.submitNote = function() {
+        if ($scope.noteId > 0) {
+            this.editNote();
+        } else {
+            this.addNote();
+        }
+    }
+
     $scope.addNote = function() {
         var n = {"title" : $scope.noteTitle, "date" : new Date().getTime(), "msg" : $scope.noteMessage};
         savedNotes.push(n);
@@ -49,17 +60,26 @@ function NotesController($scope) {
         $scope.noteMessage = '';
         $scope.noteTitle   = '';
 
-        // flash success message
-        $('#success').addClass('success-show');
-        setTimeout(function() {
-            $('#success').removeClass('success-show');
-            setTimeout(function() {
-                $('#formWrapper').slideToggle();
-            }, 500);
-        }, 1500);
+        this.flashSuccessSave();
     }
 
-    // delete a note
+    $scope.editNote = function() {
+        for(var i = 0; i < savedNotes.length; i++) {
+            if (savedNotes[i].date == $scope.noteId) {
+                savedNotes[i].title = $scope.noteTitle;
+                savedNotes[i].msg   = $scope.noteMessage;
+                break;
+            }
+        }
+
+        $scope.noteMessage = '';
+        $scope.noteTitle   = '';
+        $scope.noteId = 0;
+
+        localStorage.setItem('notes', JSON.stringify(savedNotes));
+        this.flashSuccessSave();
+    }
+
     $scope.deleteNote = function(id) {
         var index;
 
@@ -83,6 +103,42 @@ function NotesController($scope) {
         });
 
         this.deleteNote(id);
+    }
+
+    $scope.showAddNoteForm = function() {
+        $scope.noteMessage  = '';
+        $scope.noteTitle    = '';
+        $scope.submitButton = 'Add';
+
+        $('#formWrapper').slideToggle();
+        $('#formWrapper textarea').focus();
+    }
+
+    $scope.showEditNoteForm = function(note) {
+        $scope.noteMessage  = note.msg;
+        $scope.noteTitle    = note.title;
+        $scope.noteId       = note.date;
+        $scope.submitButton = 'Update';
+
+        $('#formWrapper').slideToggle();
+        $('#formWrapper textarea').focus();
+    }
+
+    $scope.closeAddNoteForm = function() {
+
+        $scope.noteMessage = '';
+        $scope.noteTitle   = '';
+        $('#formWrapper').slideToggle();
+    }
+
+    $scope.flashSuccessSave = function() {
+        $('#success').addClass('success-show');
+        setTimeout(function() {
+            $('#success').removeClass('success-show');
+            setTimeout(function() {
+                $('#formWrapper').slideToggle();
+            }, 500);
+        }, 1500);
     }
 
 }

@@ -5,11 +5,6 @@ $(function() {
         return (currentEmSize * numberOfEms);
     }
 
-    function toggleAddNoteForm() {
-        $('#formWrapper').slideToggle();    // show the form
-        $('#formWrapper textarea').focus(); // give focus to the textarea, user will be able to immediately start typing
-    }
-
     function toggleHelp() {
         $('#help').toggle("slide", {direction:"right"});
     }
@@ -32,44 +27,9 @@ $(function() {
         $('.ui-dialog-buttonset button').addClass('btn');
     }
 
-    function closeAddNoteForm() {
-        $('form textarea').val('');             // clear the textarea
-        $('form input[type="text"]').val('');   // clear the title
-        $('#formWrapper').slideToggle();        // hide the form
-    }
-
     $('#formWrapper').hide();       // hide the Add form on initial load
     $('#help').hide();              // hide the Help on initial load
     $('#aboutWindow').hide();       // hide the About window on initial load
-
-    /**
-     * The "New Note" navigation icon
-     */
-    $('#addNote').click( function(e) {
-        e.preventDefault();
-        toggleAddNoteForm();
-    });
-
-    $('#addNote a').click( function(e) {
-        e.preventDefault();
-        toggleAddNoteForm();
-    });
-
-    /**
-     * The "Close" icon on the "Add Note" form.
-     */
-    $('#closeIcon').click( function(e) {
-        e.preventDefault();
-        closeAddNoteForm();
-    });
-
-    /**
-     * The "Cancel" button on the "Add Note" form.
-     */
-    $('#cancelButton').click( function(e) {
-        e.preventDefault();
-        closeAddNoteForm();
-    });
 
     /**
      * The "Help" navigation icon
