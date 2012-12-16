@@ -27,8 +27,8 @@
 
     <!-- Navigation, User Control Panel -->
     <nav>
-      <li class="tooltip" id="addNote" data-tip="New Sticky Note" accesskey="n" ng-click="showAddNoteForm()"><a class="icon icon-new" ng-click="showAddNoteForm()"></a></li>
-      <li class="tooltip" id="showHelp" data-tip="Help" accesskey="h"><a class="icon icon-help"></a></li>
+      <li class="tooltip" data-tip="New Sticky Note" accesskey="n" ng-click="showAddNoteForm()"><a class="icon icon-new" ng-click="showAddNoteForm()"></a></li>
+      <li class="tooltip" data-tip="Help" accesskey="h" ng-click="toggleHelp()"><a class="icon icon-help" ng-click="toggleHelp()"></a></li>
       <li class="tooltip" id="showAbout" data-tip="About" accesskey="a"><a class="icon icon-about"></a></li>
       <li class="tooltip" id="trashBin" data-tip="Trash"><a class="icon icon-trash"></a></li>
     </nav>
@@ -80,7 +80,7 @@
     <div class="help" id="help">
       <div class="h1Wrapper">
         <h1>Help</h1>
-        <p class="closeHelpIconWrapper"><a href="#" id="closeHelpIcon" class="icon-cancel"></a></p>
+        <p class="closeHelpIconWrapper"><a class="icon-cancel" ng-click="toggleHelp()"></a></p>
       </div>
 
       <article>

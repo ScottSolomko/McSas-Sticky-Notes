@@ -140,4 +140,7 @@ function NotesController($scope) {
         }, 1500);
     }
 
+    $scope.toggleHelp = function() {
+        $('#help').toggle("slide", {direction:"right"});
+    }
 }

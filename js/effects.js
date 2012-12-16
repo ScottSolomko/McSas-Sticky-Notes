@@ -5,10 +5,6 @@ $(function() {
         return (currentEmSize * numberOfEms);
     }
 
-    function toggleHelp() {
-        $('#help').toggle("slide", {direction:"right"});
-    }
-
     function showAboutWindow() {
         $('#aboutWindow').dialog({
             closeText: "",
@@ -31,29 +27,11 @@ $(function() {
     $('#help').hide();              // hide the Help on initial load
     $('#aboutWindow').hide();       // hide the About window on initial load
 
-    /**
-     * The "Help" navigation icon
-     */
-    $('#showHelp').click( function(e) {
-        e.preventDefault();
-        toggleHelp();
-    });
-
-    $('#showHelp a').click( function(e) {
-        e.preventDefault();
-        toggleHelp();
-    });
-
     $('#help article').accordion({
         collapsible:    true,
         header:         "h2",
         heightStyle:    "content",
         icons:          false
-    });
-
-    $('#closeHelpIcon').click(function(e) {
-        e.preventDefault();
-        toggleHelp();
     });
 
     /**
