@@ -28,7 +28,8 @@ function NotesController($scope) {
 
     // get all the notes from local storage and use them for this session
     savedNotes   = JSON.parse(localStorage.getItem('notes'));
-    if (savedNotes == null) {
+
+    if (savedNotes == null || savedNotes.length < 1) {
         savedNotes = [];
 
         var n = {"title" : "Read Help", "date" : new Date().getTime(), "msg" : "Click on the \"Help\" icon where you will learn how to create and delete notes."};
@@ -71,6 +72,17 @@ function NotesController($scope) {
 
         savedNotes.splice(index, 1);
         localStorage.setItem('notes', JSON.stringify(savedNotes));
+    }
+
+    $scope.animateDeleteNote = function(id) {
+        var li = document.getElementById(id);
+
+        $(li).effect("transfer", {to: $('#trashBin')}, 750);
+        $('.ui-effects-transfer').css({
+            'background-color':$(li).css('background-color')
+        });
+
+        this.deleteNote(id);
     }
 
 }

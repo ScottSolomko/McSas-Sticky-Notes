@@ -43,8 +43,7 @@ $(function() {
     $('#aboutWindow').hide();       // hide the About window on initial load
 
     /**
-     * When the user clicks the "add note" icon in their control
-     * panel toggle the visibility of the form
+     * The "New Note" navigation icon
      */
     $('#addNote').click( function(e) {
         e.preventDefault();
