@@ -124,9 +124,9 @@ function NotesController($scope) {
     }
 
     $scope.closeAddNoteForm = function() {
-
         $scope.noteMessage = '';
         $scope.noteTitle   = '';
+        $scope.noteId      = 0;
         $('#formWrapper').slideToggle();
     }
 
