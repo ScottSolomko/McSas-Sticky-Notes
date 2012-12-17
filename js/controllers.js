@@ -143,4 +143,26 @@ function NotesController($scope) {
     $scope.toggleHelp = function() {
         $('#help').toggle("slide", {direction:"right"});
     }
+
+    $scope.showAboutDialog = function() {
+        $('#aboutWindow').dialog({
+            closeText: "",
+            draggable: false,
+            minWidth: em(30),
+            modal: true,
+            resizable: false,
+            buttons: {
+                OK: function() {
+                    $(this).dialog("close");
+                }
+            }
+        });
+
+        $('.ui-dialog-content').addClass('clearfix');
+        $('.ui-dialog-buttonset button').addClass('btn');
+    }
+
+    $scope.closeAboutDialog = function() {
+        $('#aboutWindow').dialog("close");
+    }
 }

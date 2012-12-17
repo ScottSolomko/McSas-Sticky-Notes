@@ -29,7 +29,7 @@
     <nav>
       <li class="tooltip" data-tip="New Sticky Note" accesskey="n" ng-click="showAddNoteForm()"><a class="icon icon-new" ng-click="showAddNoteForm()"></a></li>
       <li class="tooltip" data-tip="Help" accesskey="h" ng-click="toggleHelp()"><a class="icon icon-help" ng-click="toggleHelp()"></a></li>
-      <li class="tooltip" id="showAbout" data-tip="About" accesskey="a"><a class="icon icon-about"></a></li>
+      <li class="tooltip" data-tip="About" accesskey="a" ng-click="showAboutDialog()"><a class="icon icon-about" ng-click="showAboutDialog()"></a></li>
       <li class="tooltip" id="trashBin" data-tip="Trash"><a class="icon icon-trash"></a></li>
     </nav>
 
@@ -304,7 +304,7 @@
 
     <!-- About -->
     <div class="aboutWindow" id="aboutWindow" title="About Sticky Notes">
-      <p class="closeDialogWrapper"><a href="#" id="closeDialog"><span class="icon-cancel"></span></a></p>
+      <p class="closeDialogWrapper"><a ng-click="closeAboutDialog()""><span class="icon-cancel"></span></a></p>
 
       <article>
         <header>
