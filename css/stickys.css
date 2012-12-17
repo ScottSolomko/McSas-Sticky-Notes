@@ -371,6 +371,17 @@ form p.success {
           transition: opacity 1s ease-in-out;
 }
 form p.success-show {opacity: 1;}
+form p.noteCharCount {
+  position: relative;
+  font-size: 0.75em;
+  line-height: 1.61803398875em;
+  text-align: right;
+}
+form p.noteCharCount span {
+  position: absolute;
+  top: -1.2em;
+  right: -0.75em;
+}
 form p.closeFormIcon {position: relative;}
 form p.closeFormIcon a {
   position: absolute;
