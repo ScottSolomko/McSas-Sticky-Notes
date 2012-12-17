@@ -212,16 +212,18 @@ ul#notesContainer a.deleteNote {
 }
 ul#notesContainer a.editNote {right: 1.75em;}
 ul#notesContainer a.deleteNote {right: 0.25em;}
-ul#notesContainer a.editNote,
-ul#notesContainer a.editNote:link,
-ul#notesContainer a.editNote:visited,
-ul#notesContainer a.deleteNote,
-ul#notesContainer a.deleteNote:link,
-ul#notesContainer a.deleteNote:visited{color: #AAA;}
-ul#notesContainer a.editNote:hover,
-ul#notesContainer a.editNote:active,
-ul#notesContainer a.deleteNote:hover,
-ul#notesContainer a.deleteNote:active{color: #777;}
+ul#notesContainer li a.editNote,
+ul#notesContainer li a.deleteNote {color: rgb(204, 204, 153);}
+ul#notesContainer li:nth-child(even) a.editNote,
+ul#notesContainer li:nth-child(even) a.deleteNote{color: rgb(153, 204, 153);}
+ul#notesContainer li:nth-child(3n) a.editNote,
+ul#notesContainer li:nth-child(3n) a.deleteNote {color: rgb(153, 153, 204);}
+ul#notesContainer li a.editNote:hover,
+ul#notesContainer li a.deleteNote:hover {color: rgb(153, 153, 114);}
+ul#notesContainer li:nth-child(even) a.editNote:hover,
+ul#notesContainer li:nth-child(even) a.deleteNote:hover {color: rgb(114, 153, 114);}
+ul#notesContainer li:nth-child(3n) a.editNote:hover,
+ul#notesContainer li:nth-child(3n) a.deleteNote:hover {color: rgb(114, 114, 85);}
 ul#notesContainer li p.noteDate {
   font-size: 0.8em;
   line-height: 1.61803398875em;
