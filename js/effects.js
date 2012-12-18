@@ -9,9 +9,6 @@ $(function() {
     $('#help').hide();              // hide the Help on initial load
     $('#aboutWindow').hide();       // hide the About window on initial load
 
-    /**
-     * Help FAQ's accordion style
-     */
     $('#help article').accordion({
         active:         false,
         collapsible:    true,
@@ -20,6 +17,15 @@ $(function() {
         icons:          false
     });
 
-    $('#notesContainer').sortable();
+    $('#notesContainer').sortable({
+        containment: "window",
+        cursor: "move",
+        cursorAt: {left: em(7), top: em(1)},
+        forcePlaceholderSize: true,
+        opacity: 0.85,
+        placeholder: "sortablePlaceHolder",
+        revert: true,
+        tolerance: "pointer"
+    });
     $('#notesContainer').disableSelection();
 });

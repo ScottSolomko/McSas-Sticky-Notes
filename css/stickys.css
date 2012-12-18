@@ -231,6 +231,11 @@ ul#notesContainer li p.noteDate {
   font-style: italic;
   margin: -0.5em 0 0.5em 0;
 }
+ul#notesContainer li.sortablePlaceHolder {
+  background-color: #000;
+  opacity: 0.4;
+  border: 1px dashed #EEE;
+}
 
 /******************************************************************************/
 
