@@ -8,16 +8,11 @@ function em(numberOfEms) {
 angular.module('mcsas', []).directive('myPostRepeatDirective', function() {
     return function(scope, element, attrs) {
         if(scope.$last) {
-            $('ul#notesContainer li:not(".ui-draggable")').draggable({
-                revert:         "invalid",
-                containment:    "window",
-                cursorAt:       {right: em(2), top: em(1)},
-                helper:         "clone",
-                start:          function (e, ui) {
-                    ui.helper.css({'background-color':ui.helper.prevObject.css('background-color')});
-                    $('#trashBin').effect("shake", {distance:em(0.25), times:5});
-                }
-            });
+            /*
+             *
+             * empty
+             *
+             */
         }
     };
 });
