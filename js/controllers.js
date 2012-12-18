@@ -93,7 +93,8 @@ function NotesController($scope) {
 
         $(li).effect("transfer", {to: $('#trashBin')}, 750);
         $('.ui-effects-transfer').css({
-            'background-color':$(li).css('background-color')
+            'background-color':$(li).css('background-color'),
+            'z-index': 999
         });
 
         this.deleteNote(id);
