@@ -206,7 +206,7 @@ ul#notesContainer li:hover, ul#notesContainer li:focus {
 ul#notesContainer a.editNote,
 ul#notesContainer a.deleteNote {
   position: absolute;
-  top: 0em;
+  bottom: 0em;
   font-size: 0.75em;
   line-height: 1.61803398875em;
 }
