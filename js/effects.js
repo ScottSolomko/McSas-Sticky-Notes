@@ -25,7 +25,18 @@ $(function() {
         opacity: 0.85,
         placeholder: "sortablePlaceHolder",
         revert: true,
-        tolerance: "pointer"
+        tolerance: "pointer",
+        update: function(e, ui) {
+            var theIds = $("#notesContainer").sortable("toArray");
+
+            /*
+             * UGLY, UGLY code ahead
+             *
+             * fix this, this is terrible
+             */
+            var ang = angular.element('body').scope();
+            ang.reindexNotes(theIds);
+        }
     });
     $('#notesContainer').disableSelection();
 });

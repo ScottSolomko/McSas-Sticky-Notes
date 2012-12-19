@@ -85,6 +85,24 @@ function NotesController($scope) {
         localStorage.setItem('notes', JSON.stringify(savedNotes));
     }
 
+    $scope.reindexNotes = function(noteIds) {
+        var tmpNotes    = [];
+        var idsLen      = noteIds.length;
+        var savedLen    = savedNotes.length;
+
+        for (var i = 0; i < idsLen; i++) {
+            for (var j = 0; j < savedLen; j++) {
+                if (savedNotes[j].date == noteIds[i]) {
+                    tmpNotes.push(savedNotes[j]);
+                    break;
+                }
+            }
+        }
+
+        savedNotes = tmpNotes;
+        localStorage.setItem('notes', JSON.stringify(savedNotes));
+    }
+
     /*
      *  Animations/Interations
      */
