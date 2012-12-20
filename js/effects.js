@@ -36,6 +36,8 @@ $(function() {
              */
             var ang = angular.element('body').scope();
             ang.reindexNotes(theIds);
+
+            $('#notesContainer li').css({'z-index':1});
         }
     });
     $('#notesContainer').disableSelection();
