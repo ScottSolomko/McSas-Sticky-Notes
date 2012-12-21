@@ -21,18 +21,21 @@ function NotesController($scope) {
     var notesContainer;
 
     $scope.notes        = JSON.parse(localStorage.getItem('notes'));
+    $scope.recycle      = JSON.parse(localStorage.getItem('notes-recycle'));
     $scope.noteMessage  = '';
     $scope.noteTitle    = '';
     $scope.noteId       = 0;
     $scope.submitButton = 'Add';
 
-    if ($scope.notes == null || $scope.notes < 1) {
+    if ($scope.notes == null || $scope.notes.length < 1) {
         $scope.notes = [];
 
         var n = {"title" : "Read Help", "date" : new Date().getTime(), "msg" : "Click on the \"Help\" icon where you will learn how to create and delete notes."};
         $scope.notes.push(n);
         localStorage.setItem("notes", JSON.stringify($scope.notes));
     }
+
+    if ($scope.recycle == null) { $scope.recycle = []; }
 
     $scope.submitNote = function() {
         if ($scope.noteId > 0) {
@@ -105,10 +108,8 @@ function NotesController($scope) {
         containment: "window",
         cursor: "move",
         cursorAt: {left: em(7), top: em(1)},
-        forcePlaceholderSize: true,
         items: "> li",
         opacity: 0.85,
-        placeholder: "sortablePlaceHolder",
         revert: true,
         tolerance: "pointer",
         start: $scope.dragStart,
