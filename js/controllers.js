@@ -202,4 +202,10 @@ function NotesController($scope) {
         $('#aboutWindow').dialog("close");
     }
 
+    $('#formWrapper textarea').bind('keydown', function (e) {
+        if(e.which === 27) {
+            $scope.closeAddNoteForm();
+        }
+    });
+
 }
