@@ -102,6 +102,15 @@ function NotesController($scope) {
     }
 
     notesContainer = $('#notesContainer').sortable({
+        containment: "window",
+        cursor: "move",
+        cursorAt: {left: em(7), top: em(1)},
+        forcePlaceholderSize: true,
+        items: "> li",
+        opacity: 0.85,
+        placeholder: "sortablePlaceHolder",
+        revert: true,
+        tolerance: "pointer",
         start: $scope.dragStart,
         update: $scope.dragEnd
     });
