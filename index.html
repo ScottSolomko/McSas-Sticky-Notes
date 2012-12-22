@@ -30,7 +30,7 @@
       <li class="tooltip" data-tip="New Sticky Note" accesskey="n" ng-click="showAddNoteForm()"><a class="icon icon-new" ng-click="showAddNoteForm()"></a></li>
       <li class="tooltip" data-tip="Help" accesskey="h" ng-click="toggleHelp()"><a class="icon icon-help" ng-click="toggleHelp()"></a></li>
       <li class="tooltip" data-tip="About" accesskey="a" ng-click="showAboutDialog()"><a class="icon icon-about" ng-click="showAboutDialog()"></a></li>
-      <li class="tooltip" id="trashBin" data-tip="Recycle Bin" accesskey="r" ng-click="toggleRecycleBin()"><a class="icon icon-trash" ng-click="toggleRecycleBin()"><span class="recycleCount">2</span></a></li>
+      <li class="tooltip" id="trashBin" data-tip="Recycle Bin" accesskey="r" ng-click="toggleRecycleBin()"><a class="icon icon-trash" ng-click="toggleRecycleBin()"><span class="recycleCount" ng-model="recycle">{{recycle.length}}</span></a></li>
     </nav>
 
     <!-- the notes -->
@@ -99,95 +99,10 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><input type="checkbox" /> Dec 15</td>
-              <td>Go Shopping</td>
-              <td>Pick up milk, bread & eggs</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /> Dec 15</td>
-              <td>Go Shopping</td>
-              <td>Pick up milk, bread & eggs</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /> Dec 15</td>
-              <td>Go Shopping</td>
-              <td>Pick up milk, bread & eggs</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /> Dec 15</td>
-              <td>Go Shopping</td>
-              <td>Pick up milk, bread & eggs</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /> Dec 15</td>
-              <td>Go Shopping</td>
-              <td>Pick up milk, bread & eggs</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /> Dec 15</td>
-              <td>Go Shopping</td>
-              <td>Pick up milk, bread & eggs</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /> Dec 15</td>
-              <td>Go Shopping</td>
-              <td>Pick up milk, bread & eggs</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /> Dec 15</td>
-              <td>Go Shopping</td>
-              <td>Pick up milk, bread & eggs</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /> Dec 15</td>
-              <td>Go Shopping</td>
-              <td>Pick up milk, bread & eggs</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /> Dec 15</td>
-              <td>Go Shopping</td>
-              <td>Pick up milk, bread & eggs</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /> Dec 15</td>
-              <td>Go Shopping</td>
-              <td>Pick up milk, bread & eggs</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /> Dec 15</td>
-              <td>Go Shopping</td>
-              <td>Pick up milk, bread & eggs</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /> Dec 15</td>
-              <td>Go Shopping</td>
-              <td>Pick up milk, bread & eggs</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /> Dec 15</td>
-              <td>Go Shopping</td>
-              <td>Pick up milk, bread & eggs</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /> Dec 15</td>
-              <td>Go Shopping</td>
-              <td>Pick up milk, bread & eggs</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /> Dec 15</td>
-              <td>Go Shopping</td>
-              <td>Pick up milk, bread & eggs</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /> Dec 15</td>
-              <td>Go Shopping</td>
-              <td>Pick up milk, bread & eggs</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /> Dec 15</td>
-              <td>Go Shopping</td>
-              <td>Pick up milk, bread & eggs</td>
+            <tr ng-repeat="note in recycle">
+              <td><input type="checkbox" /> {{ note.date | date:'MMM d' }}</td>
+              <td>{{ note.title }}</td>
+              <td>{{ note.msg }}</td>
             </tr>
           </tbody>
         </table>

@@ -35,7 +35,9 @@ function NotesController($scope) {
         localStorage.setItem("notes", JSON.stringify($scope.notes));
     }
 
-    if ($scope.recycle == null) { $scope.recycle = []; }
+    if ($scope.recycle == null || $scope.recycle.length < 1) {
+        $scope.recycle = [];
+    }
 
     $scope.submitNote = function() {
         if ($scope.noteId > 0) {
@@ -76,18 +78,25 @@ function NotesController($scope) {
     }
 
     $scope.deleteNote = function(id) {
+        var note = {"title":"", "date":"", "msg":""};
         var index;
         var len = $scope.notes.length;
 
         for(var i = 0; i < len; i++) {              // I think jquery filter() would work here, instead of for loop
             if ($scope.notes[i].date == id) {
                 index = i;
+                note.title = $scope.notes[i].title; // there is definately a better way
+                note.date  = $scope.notes[i].date;  // to building this note
+                note.msg   = $scope.notes[i].msg;
                 break;
             }
         }
 
         $scope.notes.splice(index, 1);
         localStorage.setItem('notes', JSON.stringify($scope.notes));
+
+        $scope.recycle.push(note);                  // just to see it work
+        localStorage.setItem('notes-recycle', JSON.stringify($scope.recycle));
     }
 
     $scope.dragStart = function(e, ui) {
