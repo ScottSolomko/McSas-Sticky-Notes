@@ -127,12 +127,15 @@ strong {font-weight: bold;}
 }
 .icon { font-size: 2em; }
 .icon-new:before {content: "\e000";}
-.icon-trash:before {content: "\e001";}
-.icon-about:before {content: "\e002";}
+.icon-trash-skinny:before {content: "\e001";}
+.icon-help:before {content: "\e002";}
 .icon-cancel:before {content: "\e003";}
-.icon-help:before {content: "\e004";}
+.icon-about:before {content: "\e004";}
 .icon-checkmark:before {content: "\e005";}
 .icon-edit:before {content: "\e006";}
+.icon-checkbox:before {content: "\e008";}
+.icon-restore:before {content: "\e009";}
+.icon-trash:before {content: "\e007";}
 
 /******************************************************************************/
 
@@ -406,6 +409,105 @@ form {
 .form-horizontal .controls {margin-left: 5em;}
 .form-horizontal .control-group:last-child {margin-bottom: 0;}
 
+/******************************************************************************/
+
+/*
+ * Recycle Bin
+ */
+div.recycleBin {
+  position: fixed;
+  z-index: 999;
+  bottom:  0;
+  left: 0;
+  width: 100%;
+  height: 55%;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: #F7F7F7;
+  border-top: 1px solid #3F3E3A;
+
+  -webkit-box-shadow:  0px -3px 10px 0px rgba(50, 50, 50, 0.85);
+          box-shadow:  0px -3px 10px 0px rgba(50, 50, 50, 0.85);
+}
+div.recycleBin div.rbHeadingWrapper {
+  margin: 0;
+  position: relative;
+
+  -webkit-box-shadow:  0px 3px 10px 0px rgba(50, 50, 50, 0.85);
+          box-shadow:  0px 3px 10px 0px rgba(50, 50, 50, 0.85);
+
+  background: rgb(77,76,71);
+  background: -moz-linear-gradient(top,  rgba(77,76,71,1) 0%, rgba(61,60,56,1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(77,76,71,1)), color-stop(100%,rgba(61,60,56,1)));
+  background: -webkit-linear-gradient(top,  rgba(77,76,71,1) 0%,rgba(61,60,56,1) 100%);
+  background: -o-linear-gradient(top,  rgba(77,76,71,1) 0%,rgba(61,60,56,1) 100%);
+  background: -ms-linear-gradient(top,  rgba(77,76,71,1) 0%,rgba(61,60,56,1) 100%);
+  background: linear-gradient(to bottom,  rgba(77,76,71,1) 0%,rgba(61,60,56,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d4c47', endColorstr='#3d3c38',GradientType=0 );
+}
+div.recycleBin h1 {
+  margin: 0;
+  padding: 0 0 0 3em;
+  color: #DFDBD2;
+  background-image: url("../img/recycle-earth.png");
+  background-repeat: no-repeat;
+  background-position: 0.5em center;
+}
+p.closeRecycleBinIconWrapper {
+  position: absolute;
+  top: 0.66em;
+  right: 1em;
+}
+p.closeRecycleBinIconWrapper a.icon-cancel {font-size: 1.5em;}
+p.closeRecycleBinIconWrapper a,
+p.closeRecycleBinIconWrapper a:link,
+p.closeRecycleBinIconWrapper a:visited {
+  color: #E65F31;
+
+  text-shadow: 1px 1px 0px #3D3C37;
+       filter: dropshadow(color=#3D3C37, offx=1, offy=1);
+}
+p.closeRecycleBinIconWrapper a:hover,
+p.closeRecycleBinIconWrapper a:active {color: #EE744D;}
+div.recycleBin div.rbContentWrapper {
+  height: 84%;
+  margin: 0;
+  padding: 1em 1em 0 1em;
+  overflow-y: scroll;
+}
+div.recycleBin hr {
+  border-width: 1px 0;
+  border-style: solid;
+  border-top-color: #E1DEDC;
+  border-bottom-color: #F1F0EF;
+}
+div.recycleBin table {
+  width: 100%;
+  margin: 0 0 1em 0;
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: #FFF;
+}
+div.recycleBin table thead tr {background-color: rgb(199, 206, 214);}
+div.recycleBin table th,
+div.recycleBin table td {
+  text-align: left;
+  padding-top: 0.25em;
+  vertical-align: top;
+  border-top: 1px solid rgb(140, 155, 171);
+}
+div.recycleBin table th:first-child {padding-left: 1em;}
+div.recycleBin table td {
+  font-size: 0.85em;
+  line-height: 1.61803398875em;
+}
+div.recycleBin table td:first-child {padding-left: 1em;}
+div.recycleBin table tr:last-child {border-bottom: 1px solid rgb(140, 155, 171);}
+div.recycleBin tbody tr:hover {
+  cursor: default;
+  background-color: #C7D6D6;
+}
 /******************************************************************************/
 
 /*
