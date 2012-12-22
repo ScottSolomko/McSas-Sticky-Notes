@@ -173,6 +173,22 @@ function NotesController($scope) {
         localStorage.setItem('notes-recycle', JSON.stringify($scope.recycle));
     }
 
+    $scope.restoreNote = function() {
+        var oldNotes = $scope.recycle;
+        $scope.recycle = [];
+
+        angular.forEach(oldNotes, function(note) {
+            if (!note.selected) {
+                $scope.recycle.push(note);
+            } else {
+                $scope.notes.push(note);
+            }
+        });
+
+        localStorage.setItem('notes', JSON.stringify($scope.notes));
+        localStorage.setItem('notes-recycle', JSON.stringify($scope.recycle));
+    }
+
     notesContainer = $('#notesContainer').sortable({
         containment: "window",
         cursor: "move",
