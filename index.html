@@ -87,8 +87,8 @@
       </div>
       <div class="rbContentWrapper">
         <button type="button" class="btn" ng-click="selectAll()"><span class="icon-checkbox"></span> {{ rbSelectBtn }}</button>
-        <button type="button" class="btn disabled"><span class="icon-trash-skinny"></span> Delete</button>
-        <button type="button" class="btn disabled"><span class="icon-restore"></span> Restore</button>
+        <button type="button" class="btn" ng-disabled="rbChildBtns"><span class="icon-trash-skinny"></span> Delete</button>
+        <button type="button" class="btn" ng-disabled="rbChildBtns"><span class="icon-restore"></span> Restore</button>
         <hr />
         <table>
           <thead>
@@ -100,7 +100,7 @@
           </thead>
           <tbody>
             <tr ng-repeat="note in recycle | orderBy:rbOrder">
-              <td><input type="checkbox" ng-model="note.selected" /> {{ note.date | date:'MMM d' }}</td>
+              <td><input type="checkbox" ng-model="note.selected" ng-change="setChildBtns()" /> {{ note.date | date:'MMM d' }}</td>
               <td>{{ note.title }}</td>
               <td>{{ note.msg }}</td>
             </tr>

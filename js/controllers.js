@@ -29,6 +29,7 @@ function NotesController($scope) {
 
     $scope.rbOrder      = 'date';
     $scope.rbSelectBtn  = "Select All";
+    $scope.rbChildBtns  = true;
 
     if ($scope.notes == null || $scope.notes.length < 1) {
         $scope.notes = [];
@@ -126,6 +127,7 @@ function NotesController($scope) {
             }
 
             $scope.rbSelectBtn = "Deselect All";
+            $scope.rbChildBtns = false;
         } else {
             $scope.deselectAll();
         }
@@ -140,6 +142,22 @@ function NotesController($scope) {
         }
 
         $scope.rbSelectBtn = "Select All";
+        $scope.rbChildBtns = true;
+    }
+
+    $scope.setChildBtns = function() {
+        var disabled = true,
+            i,
+            len = $scope.recycle.length;
+
+        for(i = 0; i < len; i++) {
+            if($scope.recycle[i].selected == true) {
+                disabled = false;
+                break;
+            }
+        }
+
+        $scope.rbChildBtns = disabled;
     }
 
     notesContainer = $('#notesContainer').sortable({
