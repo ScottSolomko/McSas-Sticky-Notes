@@ -160,6 +160,19 @@ function NotesController($scope) {
         $scope.rbChildBtns = disabled;
     }
 
+    $scope.permDelNotes = function() {
+        var oldNotes = $scope.recycle;
+        $scope.recycle = [];
+
+        angular.forEach(oldNotes, function(note) {
+            if(!note.selected) {
+                $scope.recycle.push(note);
+            }
+        });
+
+        localStorage.setItem('notes-recycle', JSON.stringify($scope.recycle));
+    }
+
     notesContainer = $('#notesContainer').sortable({
         containment: "window",
         cursor: "move",
