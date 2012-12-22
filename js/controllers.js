@@ -27,6 +27,9 @@ function NotesController($scope) {
     $scope.noteId       = 0;
     $scope.submitButton = 'Add';
 
+    $scope.rbOrder      = 'date';
+    $scope.rbSelectAll  = true;
+
     if ($scope.notes == null || $scope.notes.length < 1) {
         $scope.notes = [];
 
@@ -111,6 +114,10 @@ function NotesController($scope) {
         $scope.$apply();
 
         localStorage.setItem("notes", JSON.stringify($scope.notes));
+    }
+
+    $scope.selectAll = function() {
+        $scope.rbSelectAll = !$scope.rbSelectAll;
     }
 
     notesContainer = $('#notesContainer').sortable({

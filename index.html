@@ -86,7 +86,7 @@
         <p class="closeRecycleBinIconWrapper"><a class="icon-cancel" ng-click="toggleRecycleBin()"></a></p>
       </div>
       <div class="rbContentWrapper">
-        <button type="button" class="btn"><span class="icon-checkbox"></span> Select All</button>
+        <button type="button" class="btn" ng-click="selectAll()"><span class="icon-checkbox"></span> Select All</button>
         <button type="button" class="btn disabled"><span class="icon-trash-skinny"></span> Delete</button>
         <button type="button" class="btn disabled"><span class="icon-restore"></span> Restore</button>
         <hr />
@@ -99,8 +99,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="note in recycle">
-              <td><input type="checkbox" /> {{ note.date | date:'MMM d' }}</td>
+            <tr ng-repeat="note in recycle | orderBy:rbOrder">
+              <td><input type="checkbox" ng-checked="rbSelectAll" /> {{ note.date | date:'MMM d' }}</td>
               <td>{{ note.title }}</td>
               <td>{{ note.msg }}</td>
             </tr>
