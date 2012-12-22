@@ -28,7 +28,7 @@ function NotesController($scope) {
     $scope.submitButton = 'Add';
 
     $scope.rbOrder      = 'date';
-    $scope.rbSelectAll  = true;
+    $scope.rbSelectBtn  = "Select All";
 
     if ($scope.notes == null || $scope.notes.length < 1) {
         $scope.notes = [];
@@ -81,7 +81,7 @@ function NotesController($scope) {
     }
 
     $scope.deleteNote = function(id) {
-        var note = {"title":"", "date":"", "msg":""};
+        var note = {"title":"", "date":"", "msg":"", "selected":false};
         var index;
         var len = $scope.notes.length;
 
@@ -117,7 +117,29 @@ function NotesController($scope) {
     }
 
     $scope.selectAll = function() {
-        $scope.rbSelectAll = !$scope.rbSelectAll;
+        if($scope.rbSelectBtn == "Select All") {
+            var i,
+                len = $scope.recycle.length;
+
+            for(i = 0; i < len; i++) {
+                $scope.recycle[i].selected = true;
+            }
+
+            $scope.rbSelectBtn = "Deselect All";
+        } else {
+            $scope.deselectAll();
+        }
+    }
+
+    $scope.deselectAll = function() {
+        var i,
+            len = $scope.recycle.length;
+
+        for(i = 0; i < len; i++) {
+            $scope.recycle[i].selected = false;
+        }
+
+        $scope.rbSelectBtn = "Select All";
     }
 
     notesContainer = $('#notesContainer').sortable({
