@@ -5,9 +5,10 @@ $(function() {
         return (currentEmSize * numberOfEms);
     }
 
-    $('#formWrapper').hide();       // hide the Add form on initial load
-    $('#help').hide();              // hide the Help on initial load
-    $('#aboutWindow').hide();       // hide the About window on initial load
+    $('#formWrapper').hide();
+    $('#help').hide();
+    $('#aboutWindow').hide();
+    $('#recycleBin').hide();
 
     $('#help article').accordion({
         active:         false,
@@ -16,5 +17,5 @@ $(function() {
         heightStyle:    "content",
         icons:          false
     });
-    
+
 });

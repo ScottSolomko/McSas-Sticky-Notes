@@ -30,7 +30,7 @@
       <li class="tooltip" data-tip="New Sticky Note" accesskey="n" ng-click="showAddNoteForm()"><a class="icon icon-new" ng-click="showAddNoteForm()"></a></li>
       <li class="tooltip" data-tip="Help" accesskey="h" ng-click="toggleHelp()"><a class="icon icon-help" ng-click="toggleHelp()"></a></li>
       <li class="tooltip" data-tip="About" accesskey="a" ng-click="showAboutDialog()"><a class="icon icon-about" ng-click="showAboutDialog()"></a></li>
-      <li class="tooltip" id="trashBin" data-tip="Trash"><a class="icon icon-trash"></a></li>
+      <li class="tooltip" id="trashBin" data-tip="Recycle Bin" accesskey="r" ng-click="toggleRecycleBin()"><a class="icon icon-trash" ng-click="toggleRecycleBin()"></a></li>
     </nav>
 
     <!-- the notes -->
@@ -83,7 +83,7 @@
     <div class="recycleBin" id="recycleBin">
       <div class="rbHeadingWrapper">
         <h1>Recycle Bin</h1>
-        <p class="closeRecycleBinIconWrapper"><a class="icon-cancel"></a></p>
+        <p class="closeRecycleBinIconWrapper"><a class="icon-cancel" ng-click="toggleRecycleBin()"></a></p>
       </div>
       <div class="rbContentWrapper">
         <button class="btn"><span class="icon-checkbox"></span> Select All</button>
@@ -293,6 +293,7 @@
             forward, for example n = new note, however how you access these shortcuts
             varies depending on your platform and browser.
           </p>
+          <!-- Windows -->
           <table>
             <caption>Windows</caption>
             <thead>
@@ -330,8 +331,17 @@
                 <td>Alt+a</td>
                 <td>Alt+a</td>
               </tr>
+              <tr>
+                <td>Recycle Bin [r]</td>
+                <td>Alt+r</td>
+                <td>Alt+Shift+r</td>
+                <td>Shift+Esc r</td>
+                <td>Alt+r</td>
+                <td>Alt+r</td>
+              </tr>
             </tbody>
           </table>
+          <!-- Mac -->
           <table>
             <caption>Mac</caption>
             <thead>
@@ -369,8 +379,17 @@
                 <td>Alt+a</td>
                 <td>Ctrl+Opt+a</td>
               </tr>
+              <tr>
+                <td>Recycle Bin [r]</td>
+                <td>Ctrl+Opt+r</td>
+                <td>Ctrl+Opt+r</td>
+                <td>Shift+Esc r</td>
+                <td>Alt+r</td>
+                <td>Ctrl+Opt+r</td>
+              </tr>
             </tbody>
           </table>
+          <!-- Linux -->
           <table>
             <caption>Linux</caption>
             <thead>
@@ -399,6 +418,12 @@
                 <td>Alt+a</td>
                 <td>Alt+Shift+a</td>
                 <td>Shift+Esc a</td>
+              </tr>
+              <tr>
+                <td>Recycle Bin [r]</td>
+                <td>Alt+r</td>
+                <td>Alt+Shift+r</td>
+                <td>Shift+Esc r</td>
               </tr>
             </tbody>
           </table>

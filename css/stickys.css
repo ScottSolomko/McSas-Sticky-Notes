@@ -330,7 +330,6 @@ nav li a:hover {cursor: default;}
   position: fixed;
   bottom: 0;
 }
-#trashBin::before {content: attr(data-tip);}
 
 /******************************************************************************/
 

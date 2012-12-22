@@ -203,6 +203,10 @@ function NotesController($scope) {
         $('#aboutWindow').dialog("close");
     }
 
+    $scope.toggleRecycleBin = function() {
+        $('#recycleBin').slideToggle();
+    }
+
     $(document).bind('keydown', function(e) {
         if(e.which === 27) {
             if($('div#help').is(':visible')) {
@@ -210,6 +214,9 @@ function NotesController($scope) {
             }
             if($('#formWrapper').is(':visible')) {
                 $scope.closeAddNoteForm();
+            }
+            if($('#recycleBin').is(':visible')) {
+                $scope.toggleRecycleBin();
             }
         }
     })
