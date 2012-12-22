@@ -86,7 +86,7 @@
         <p class="closeRecycleBinIconWrapper"><a class="icon-cancel" ng-click="toggleRecycleBin()"></a></p>
       </div>
       <div class="rbContentWrapper">
-        <button type="button" class="btn" ng-click="selectAll()"><span class="icon-checkbox"></span> {{ rbSelectBtn }}</button>
+        <button type="button" class="btn" ng-click="selectAll()" ng-disabled="rbSelect"><span class="icon-checkbox"></span> {{ rbSelectBtn }}</button>
         <button type="button" class="btn" ng-disabled="rbChildBtns" ng-click="permDelNotes()"><span class="icon-trash-skinny"></span> Delete</button>
         <button type="button" class="btn" ng-disabled="rbChildBtns" ng-click="restoreNote()"><span class="icon-restore"></span> Restore</button>
         <hr />

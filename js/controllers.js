@@ -29,6 +29,7 @@ function NotesController($scope) {
 
     $scope.rbOrder      = 'date';
     $scope.rbSelectBtn  = "Select All";
+    $scope.rbSelect     = true;
     $scope.rbChildBtns  = true;
 
     if ($scope.notes == null || $scope.notes.length < 1) {
@@ -41,6 +42,7 @@ function NotesController($scope) {
 
     if ($scope.recycle == null || $scope.recycle.length < 1) {
         $scope.recycle = [];
+        $scope.rbSelect = true;
     }
 
     $scope.submitNote = function() {
@@ -101,6 +103,7 @@ function NotesController($scope) {
 
         $scope.recycle.push(note);                  // just to see it work
         localStorage.setItem('notes-recycle', JSON.stringify($scope.recycle));
+        $scope.rbSelect = false;
     }
 
     $scope.dragStart = function(e, ui) {
@@ -171,6 +174,11 @@ function NotesController($scope) {
         });
 
         localStorage.setItem('notes-recycle', JSON.stringify($scope.recycle));
+        $scope.rbSelectBtn  = "Select All";
+        if ($scope.recycle == null || $scope.recycle.length < 1) {
+            $scope.rbSelect = true;
+        }
+        $scope.setChildBtns();
     }
 
     $scope.restoreNote = function() {
@@ -187,6 +195,11 @@ function NotesController($scope) {
 
         localStorage.setItem('notes', JSON.stringify($scope.notes));
         localStorage.setItem('notes-recycle', JSON.stringify($scope.recycle));
+        $scope.rbSelectBtn  = "Select All";
+        if ($scope.recycle == null || $scope.recycle.length < 1) {
+            $scope.rbSelect = true;
+        }
+        $scope.setChildBtns();
     }
 
     notesContainer = $('#notesContainer').sortable({
