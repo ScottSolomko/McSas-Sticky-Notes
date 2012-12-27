@@ -128,9 +128,9 @@ strong {font-weight: bold;}
 .icon { font-size: 2em; }
 .icon-new:before {content: "\e000";}
 .icon-trash-skinny:before {content: "\e001";}
-.icon-help:before {content: "\e002";}
+.icon-help:before {content: "\e004";}
 .icon-cancel:before {content: "\e003";}
-.icon-about:before {content: "\e004";}
+.icon-about:before {content: "\e002";}
 .icon-checkmark:before {content: "\e005";}
 .icon-edit:before {content: "\e006";}
 .icon-checkbox:before {content: "\e008";}
@@ -534,7 +534,7 @@ div.recycleBin tbody tr:hover {
  */
 div.help {
   position:  fixed;
-  z-index: 1;
+  z-index: 9;
   top: 0;
   right: 0;
   width: 50%;
